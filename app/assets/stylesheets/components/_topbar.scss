@@ -1,0 +1,33 @@
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  padding: 0px 10px;
+  z-index: 100;
+  height: 50px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+}
+
+.topbar-toggler-icon {
+  background-image: asset-url('topbar-icon-black.png');
+  border-color: none;
+  height: 20px;
+  margin-right: -6px;
+  margin-bottom: 2px;
+  width: 35px;
+}
+
+.nav-item {
+  color: $bruyere-dark;
+  text-align: end;
+}
+
+.topbar-nav {
+  background-color: white;
+  width: 110%;
+  padding: 20px;
+  float: right;
+  right: -20px;
+  position: relative;
+  box-shadow: 1px 6px 10px -4px rgba(0,0,0,0.08);
+}
