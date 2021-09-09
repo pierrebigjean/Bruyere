@@ -1,0 +1,6 @@
+<%= simple_form_for location do |f| %>
+  <%= f.input :name, class: "form-control" %>
+  <%= f.input :category, :collection => Location::CATEGORY, class: "form-control" %>
+  <%= f.input :brightness, :collection => Location::BRIGHTNESS, class: "form-control" %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

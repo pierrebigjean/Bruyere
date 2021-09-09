@@ -3,6 +3,7 @@ class Location < ApplicationRecord
   has_many :ownerships, dependent: :destroy
 
   CATEGORY = %w(Indoor Outdoor)
+  BRIGHTNESS = %w(Low Medium High)
 
   validates :category, inclusion: { in: CATEGORY }
   validates :brightness, presence: true
