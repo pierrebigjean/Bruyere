@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   root to: 'pages#home'
 
-  resources :plants, only: [ :index, :create ]
+  resources :plants, only: [ :index ]
 
   resources :locations, only: [ :index, :create, :update, :destroy ] do
     resources :ownerships, only: [ :create, :destroy ]

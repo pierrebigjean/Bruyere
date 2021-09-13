@@ -1,0 +1,35 @@
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  margin-bottom: 10px;
+  height: 90px;
+  box-shadow: 0 1px 15px rgba(0,0,0,0.1);
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  background-color: $bruyere-green;
+}
+
+// .topbar-toggler-icon {
+//   background-image: asset-url('topbar-icon-black.png');
+//   border-color: none;
+//   height: 20px;
+//   margin-right: -6px;
+//   margin-bottom: 2px;
+//   width: 35px;
+// }
+
+// .nav-item {
+//   color: $bruyere-dark;
+//   text-align: end;
+// }
+// ul {
+//   list-style-type: none;
+// }
+
+// .topbar-nav {
+//   background-color: white;
+//   width: 100%;
+//   padding: 20px;
+//   box-shadow: 1px 6px 10px -4px rgba(0,0,0,0.08);
+// }
