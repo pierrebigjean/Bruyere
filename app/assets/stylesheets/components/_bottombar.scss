@@ -1,0 +1,29 @@
+.bottombar {
+  box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: white;
+  position: sticky;
+  bottom: 0px;
+  width: 100%;
+  z-index: 10;
+}
+
+.bottombar-link {
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: black;
+  cursor: pointer;
+  height: 30px;
+  width: auto;
+  align-self: center;
+  .bottom-bar-text {
+    font-weight: 700;
+    align-self: center;
+  }
+}

@@ -1,23 +1,28 @@
-<%= render "shared/topbar" %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <% @locations.each do |location| %>
-        <%= location.name  %>
-        <%= location.category %>
-        <%= location.brightness %>
-      <% end %>
+  <%= render 'shared/topbar' %>
+
+<div class="content-wrapper">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <% @locations.each do |location| %>
+          <%= location.name  %>
+          <%= location.category %>
+          <%= location.brightness %>
+        <% end %>
+      </div>
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newLocationModal">
+        New Location
+      </button>
+
     </div>
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newLocationModal">
-      New Location
-    </button>
-
   </div>
 </div>
 
+<%= render 'shared/bottombar', datasource: @datasource %>
 
 <!-- Modal -->
 <div class="modal fade" id="newLocationModal" tabindex="-1" role="dialog" aria-labelledby="newLocationModalLabel" aria-hidden="true">
