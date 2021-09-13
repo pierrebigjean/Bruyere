@@ -1,0 +1,18 @@
+.card {
+  box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.card-location {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-plant-small {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: 0px 8px;
+}
