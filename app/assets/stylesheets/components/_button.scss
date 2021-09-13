@@ -1,0 +1,41 @@
+.button-add {
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  background-color: $bruyere-blue;
+  padding: 5px 15px;
+  font-weight: 500;
+  margin: 15px;
+  color: white;
+  
+  &:active {
+    color: $bruyere-dark;
+    background-color: $bruyere-light-blue;
+  }
+  &:hover {
+    color: $bruyere-dark;
+    background-color: $bruyere-light-blue;
+  }
+}
+
+.button-small {
+  font-size: 20px;
+  transition: all 0.3s ease;
+  color: $bruyere-dark;
+  .fa-question-circle {
+    position: relative;
+    bottom: 5px;
+    right: 5px;
+  }
+  &:active {
+    color: $bruyere-light-blue;
+  }
+  &:hover {
+    color: $bruyere-light-blue;
+  }
+}
+
+.button-add-pant-to-location {
+  position: absolute;
+  right: 10px;
+  bottom: 0px;
+}

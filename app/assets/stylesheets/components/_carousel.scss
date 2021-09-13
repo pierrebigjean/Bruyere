@@ -1,0 +1,11 @@
+.carousel {
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.carousel-container {
+  width: fit-content;
+  display: flex;
+}
