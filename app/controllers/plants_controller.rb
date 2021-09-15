@@ -1,11 +1,7 @@
 class PlantsController < ApplicationController
 
   def index
+    @plants = Plant.all
   end
 
-  private
-
-  def plants_params
-    params.require(:plant).permit(:name, :height, :exposure, :watering_frequency, :description)
-  end
 end
