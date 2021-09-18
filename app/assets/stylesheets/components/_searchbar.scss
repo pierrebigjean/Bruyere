@@ -1,0 +1,27 @@
+.search-bar {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px auto;
+  border: 1px solid $bruyere-light-blue;
+  border-radius: 50px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+  padding: 5px;
+  background-color: white;
+  p {
+    margin-bottom: 0px;
+  }
+}
+
+.search-bar-item {
+  select, input {
+    border-style: none;
+    border-bottom: 1px solid $bruyere-light-blue;
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: bolder;
+  }
+}

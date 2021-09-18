@@ -17,21 +17,13 @@
           </div>
           <div class="card card-location">
             <div class="carousel">
-              <div class="carousel-container">
-                <div class="card card-plant-small">
-                </div>
-                <div class="card card-plant-small">
-                </div>
-                <div class="card card-plant-small">
-                </div>
-                <div class="card card-plant-small">
-                </div>
-                <div class="card card-plant-small">
-                </div>
-              </div>
-            </div>
-            <div class="button-small button-add-pant-to-location">
-              <i class="far fa-plus-square"></i>
+              <ul class="carousel-container" id="sortable" >
+                <% location.ownerships.each do |ownership| %>
+                  <li class="card card-plant-small">
+                    <%= ownership.plant.name %>
+                  </li>
+                <% end %>
+              </ul>
             </div>
           </div>
         <% end %>
@@ -59,7 +51,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= render 'form', location: @location %>
+        <%= render 'location-form', location: @location %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

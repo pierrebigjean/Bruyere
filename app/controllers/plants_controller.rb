@@ -1,11 +1,12 @@
 class PlantsController < ApplicationController
 
   def index
+    @plants = Plant.search(params[:search])
+    @locations = Location.all
+    if params[:search].nil? || params[:search] == ""
+      @plants = Plant.all.order(:name)
+    end
+    @ownership = Ownership.new
   end
 
-  private
-
-  def plants_params
-    params.require(:plant).permit(:name, :height, :exposure, :watering_frequency, :description)
-  end
 end

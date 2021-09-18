@@ -29,4 +29,5 @@ class LocationsController < ApplicationController
   def locations_params
     params.require(:location).permit(:category, :brightness, :name)
   end
+  
 end
