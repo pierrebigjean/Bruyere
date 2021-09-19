@@ -6,22 +6,22 @@
     <div class="row">
       <div class="col-12">
 
-        <div class="search-bar" data-controller="refresh-list">
-          <%= form_with url: plants_path, method: :get, html: { data: { refresh_list_target: 'form' } } do |f| %>
-              <%= f.text_field :query,
-                                class: "form-control", 
+        <div data-controller="refresh-list">
+          <%= form_with url: plants_path, method: :get, remote: true, html: { class: "search-bar", data: { refresh_list_target: 'form' } } do |f| %>
+              <%= f.text_field :search,
+                                class: "search-bar-item", 
                                 placeholder: "Search a plant", 
-                                value: params[:query],
+                                value: params[:search],
                                 data: {
                                   refresh_list_target: 'searchInput',
                                   action: "keyup->refresh-list#update",
                                 } %>
           <% end %>
+
+          <%= render 'list', plants: @plants %>
+
         </div>
 
-        <div data-refresh-list-target="list">
-          <%= render 'list', plants: @plants %>
-        </div>
       </div>
 
     </div>
