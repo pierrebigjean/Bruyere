@@ -6,42 +6,22 @@
     <div class="row">
       <div class="col-12">
 
-        <div class="search-bar">
-          <%= form_tag(plants_path, method: 'get', remote: true) do %>
-            <div class="search-bar-item">
-              <%= text_field_tag :search, nil, placeholder: "Search ...", class: "form-control" %>
-            </div>
-            <%= submit_tag "", style: "display: none;" %>
+        <div class="search-bar" data-controller="refresh-list">
+          <%= form_with url: plants_path, method: :get, html: { data: { refresh_list_target: 'form' } } do |f| %>
+              <%= f.text_field :query,
+                                class: "form-control", 
+                                placeholder: "Search a plant", 
+                                value: params[:query],
+                                data: {
+                                  refresh_list_target: 'searchInput',
+                                  action: "keyup->refresh-list#update",
+                                } %>
           <% end %>
         </div>
 
-        <% @plants.each_with_index do |plant, index| %>
-          <div class="card">
-             <!-- Button trigger modal -->
-            <div data-toggle="modal" data-target="#newPlantToLocationModal<%=index%>">
-              <%= plant.name %>
-              <%= plant.height %>
-              <%= plant.exposure %>
-            </div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="newPlantToLocationModal<%=index%>" tabindex="-1" role="dialog" aria-labelledby="newPlantToLocationModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="newPlantToLocationModalLabel<%=index%>"><%= plant.name %></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <%= render 'plant-form', plant: plant %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
+        <div data-refresh-list-target="list">
+          <%= render 'list', plants: @plants %>
+        </div>
       </div>
 
     </div>

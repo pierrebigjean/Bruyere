@@ -36,3 +36,5 @@ document.addEventListener('turbolinks:load', () => {
   initWeather();
   initSelect2();
 });
+
+import "controllers"
