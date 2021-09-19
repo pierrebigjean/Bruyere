@@ -1,6 +1,6 @@
 .topbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   position: sticky;
   margin-bottom: 10px;
   height: 90px;
@@ -8,6 +8,23 @@
   border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
   background-color: $bruyere-green;
+}
+
+.topbar-content {
+  transition: all 0.3s ease;
+  width: 90%;
+  justify-content: space-between;
+  margin-top: 10px;
+  display: flex;
+}
+
+#weather-icon {
+  transition: all 0.3s ease;
+  align-self: center;
+  z-index: 5;
+  position: absolute;
+  margin-top: 45px;
+  filter: brightness(0) invert(1);
 }
 
 // .topbar-toggler-icon {

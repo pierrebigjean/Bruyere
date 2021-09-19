@@ -17,7 +17,6 @@
           </div>
           <div class="card card-location">
             <div class="carousel">
-<<<<<<< HEAD
               <ul class="carousel-container" id="sortable" >
                 <% location.ownerships.each do |ownership| %>
                   <li class="card card-plant-small">
@@ -25,47 +24,8 @@
                   </li>
                 <% end %>
               </ul>
-=======
-              <div class="carousel-container">
-                <div class="card card-plant-small">
-                </div>
-                <div class="card card-plant-small">
-                </div>
-                <div class="card card-plant-small">
-                </div>
-                <div class="card card-plant-small">
-                </div>
-                <div class="card card-plant-small">
-                </div>
-              </div>
             </div>
 
-             <!-- Button trigger modal -->
-            <div class="button-small button-add-pant-to-location" data-toggle="modal" data-target="#newPlantToLocationModal">
-              <i class="far fa-plus-square"></i>
->>>>>>> f74be2211bb1d72bd8fe7ad5446f9b7cec83267f
-            </div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="newPlantToLocationModal" tabindex="-1" role="dialog" aria-labelledby="newPlantToLocationModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="newPlantToLocationModalLabel">Add a plant to <%= location.name %></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <%= render 'plant-form', location: location %>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         <% end %>
       </div>

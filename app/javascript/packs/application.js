@@ -22,6 +22,8 @@ ActiveStorage.start()
 import "bootstrap";
 import { initTopBar } from "../components/topbar"
 import { initSortable } from "../plugins/init_sortable"
+import { initWeather } from "../plugins/init_openweather"
+import { initSelect2 } from "../plugins/init_select2"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -31,4 +33,6 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initTopBar();
   initSortable();
+  initWeather();
+  initSelect2();
 });
