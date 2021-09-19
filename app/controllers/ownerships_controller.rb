@@ -2,21 +2,21 @@ class OwnershipsController < ApplicationController
 
   def create
     @ownership = Ownership.new(ownerships_params)
-    @ownership.location = Plant.find(params[:location_id])
+    @ownership.plant = Plant.find(params[:plant_id])
     @ownership.save
-    redirect_to ownerships_path, notice: "Your ownership has been registered"
+    redirect_to locations_path, notice: "Your ownership has been registered"
   end
 
   def destroy
     @ownership = Ownership.find(params[:id])
     @ownership.destroy
-    redirect_to ownerships_path, notice: "Your ownership has been deleted"
+    redirect_to locations_path, notice: "Your ownership has been deleted"
   end
   
   private
 
   def ownerships_params
-    params.require(:ownership).permit(:last_watering_date, :plant)
+    params.require(:ownership).permit(:last_watering_date, :watering_frequency, :location_id)
   end
 
 end
