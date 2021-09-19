@@ -1,7 +1,4 @@
 // TODO: Write your JS code in here
-import $ from 'jquery';
-import 'select2';
-
 const initWeather = () => {
   const d = new Date();
   

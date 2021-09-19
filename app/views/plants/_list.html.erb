@@ -1,27 +1,34 @@
-<% plants.each_with_index do |plant, index| %>
-  <div class="card">
-    <!-- Button trigger modal -->
-    <div data-toggle="modal" data-target="#newPlantToLocationModal<%=index%>">
-      <%= plant.name %>
-      <%= plant.height %>
-      <%= plant.exposure %>
-    </div>
+<div data-refresh-list-target="list">
+  <% plants.each_with_index do |plant, index| %>
+    <div class="card">
+      <!-- Button trigger modal -->
+      <div data-toggle="modal" data-target="#newPlantToLocationModal<%=index%>">
+        <%= plant.name %>
+        <%= plant.height %>
+        <%= plant.exposure %>
+      </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="newPlantToLocationModal<%=index%>" tabindex="-1" role="dialog" aria-labelledby="newPlantToLocationModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="newPlantToLocationModalLabel<%=index%>"><%= plant.name %></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <%= render 'plant-form', plant: plant %>
+      <!-- Modal -->
+      <div class="modal fade" id="newPlantToLocationModal<%=index%>" tabindex="-1" role="dialog" aria-labelledby="newPlantToLocationModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="newPlantToLocationModalLabel<%=index%>"><%= plant.name %></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= simple_form_for @ownership, url: plant_ownerships_path(plant), method: "POST" do |f| %>
+                <%= f.input :location_id, collection: @locations  %>
+                <%= f.input :last_watering_date, as: :date, class: "form-control" %>
+                <%= f.input :watering_frequency %>
+                <%= f.button :submit, "save", class: "btn btn-primary" %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
