@@ -1,12 +1,18 @@
 class PlantsController < ApplicationController
 
   def index
-    @plants = Plant.search(params[:search])
-    @locations = Location.all
-    if params[:search].nil? || params[:search] == ""
-      @plants = Plant.all.order(:name)
-    end
     @ownership = Ownership.new
+    @locations = Location.all
+    
+    @plants = Plant.order(:name)
+    if params[:query].present?
+      @plants = @plants.where('name ILIKE ?', "%#{params[:query]}%")
+    end
+
+    respond_to do |format|
+      format.html
+      format.text { render partial: 'list.html', locals: { plants: @plants } }
+    end
   end
 
 end

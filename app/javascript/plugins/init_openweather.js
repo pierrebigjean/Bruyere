@@ -20,7 +20,8 @@ const initWeather = () => {
   };
 
   navigator.geolocation.getCurrentPosition((data) => {
-    const urlCurrent = `http://api.openweathermap.org/data/2.5/weather?lat=${data.coords.latitude}&lon=${data.coords.longitude}&appid=0d167b4e614071f9f4f0f2fdabbc27a3&units=metric`;
+    const openWeatherKey = document.querySelector(".topbar").dataset.openweatherApiKey
+    const urlCurrent = `http://api.openweathermap.org/data/2.5/weather?lat=${data.coords.latitude}&lon=${data.coords.longitude}&appid=${openWeatherKey}&units=metric`;
     fetchWeather(urlCurrent);
   });
 }
