@@ -1,11 +1,18 @@
 <div data-refresh-list-target="list">
   <% plants.each_with_index do |plant, index| %>
-    <div class="card">
+    <div class="card p-0">
       <!-- Button trigger modal -->
-      <div data-toggle="modal" data-target="#newPlantToLocationModal<%=index%>">
-        <%= plant.name %>
-        <%= plant.height %>
-        <%= plant.exposure %>
+      <div data-toggle="modal" data-target="#newPlantToLocationModal<%=index%>" class="card-plant">
+        <div>
+          <div class="whiteboldtext" id="plant-name">
+            <%= plant.name %>
+          </div>
+          <%= image_tag plant.image, class: "plant-image-small" %>
+        </div>
+        <div>
+          <%= plant.height %>
+          <%= plant.exposure %>
+        </div>
       </div>
 
       <!-- Modal -->

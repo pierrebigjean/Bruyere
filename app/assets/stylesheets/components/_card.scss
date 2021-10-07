@@ -4,9 +4,11 @@
   padding: 10px;
   border-radius: 10px;
   border: none;
+  margin-bottom: 10px;
+  height: 100px;
 }
 
-.card-location {
+.card-location, .card-plant {
   display: flex;
   flex-direction: row;
 }

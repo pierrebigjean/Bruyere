@@ -1,6 +1,8 @@
 <%= simple_form_for location do |f| %>
-  <%= f.input :name, class: "form-control" %>
-  <%= f.input :category, :collection => Location::CATEGORY, class: "form-control" %>
-  <%= f.input :brightness, :collection => Location::BRIGHTNESS, class: "form-control" %>
-  <%= f.submit class: "btn btn-primary" %>
+  <%= f.input :name, prompt: "Choose a name" %>
+  <div class="d-flex justify-content-around">
+    <%= f.input :category, :collection => Location::CATEGORY, as: :radio_buttons %>
+    <%= f.input :brightness, :collection => Location::BRIGHTNESS, as: :radio_buttons %>
+  </div>
+  <%= f.submit class: "button" %>
 <% end %>

@@ -18,6 +18,17 @@
                                 } %>
           <% end %>
 
+          <%= form_with url: plants_path, method: :get, remote: true, html: { class: "search-bar search-bar-bottom", data: { refresh_list_target: 'form' } } do |f| %>
+              <%= f.text_field :search,
+                                class: "search-bar-item", 
+                                placeholder: "Search a plant", 
+                                value: params[:search],
+                                data: {
+                                  refresh_list_target: 'searchInput',
+                                  action: "keyup->refresh-list#update",
+                                } %>
+          <% end %>
+
           <%= render 'list', plants: @plants %>
 
         </div>

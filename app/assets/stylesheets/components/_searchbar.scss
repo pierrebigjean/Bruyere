@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   margin: 10px auto;
+  margin-bottom: 20px;
   border: 1px solid $bruyere-light-blue;
   border-radius: 50px;
   box-shadow: 0 1px 8px rgba(0,0,0,0.08);
@@ -14,15 +15,11 @@
 }
 
 .search-bar-item {
+  width: 100%;
   border-style: none;
-  select, input {
-    border-style: none;
-    border-bottom: 1px solid $bruyere-light-blue;
-    font-size: 14px;
-  }
+  outline: none;
+}
 
-  p {
-    font-size: 14px;
-    font-weight: bolder;
-  }
+.search-bar-bottom {
+  z-index: 10;
 }

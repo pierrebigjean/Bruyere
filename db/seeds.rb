@@ -25,13 +25,13 @@ user.save!
 puts "Done!"
 
 # CREATING PLANTS
-
 def plantscrapper(plant_name)
   url = "https://www.aujardin.info/plantes/#{plant_name}.php"
 
   height = 0
   exposure = ""
   description = ""
+  image = ""
 
   begin
     html_file = URI.open(url, redirect: false).read
@@ -39,41 +39,50 @@ def plantscrapper(plant_name)
     height = 0
     exposure = ""
     description = ""
+    image = ""
+    p "HTTP error"
   rescue URI::InvalidURIError
     p "Encoding error here"
   else
-    html_doc = Nokogiri::HTML(html_file)
-    height = html_doc.search('.bgDark').first(5).last.children.last.text
+    p html_doc = Nokogiri::HTML(html_file)
+    # p html_doc.search('.bgDark')[1]
+    # html_doc.search('.bgDark').each_with_index do |nokogiri, index|
+    #   if nokogiri.children.text == "Hauteur"
+    #     nokogiri
+    #   end
+    # end
+    image = html_doc.search('.galerieItem').attr("src").text
+    height = html_doc.search('.bgDark').first(5).last.children.last.text.strip
     exposure = html_doc.search('.bgLight').first(6).last.children[-2].text.strip
     description = html_doc.search('p').first(12).join(" ")
-    Plant.create(name: plant_name, height: height, exposure: exposure, description: description)
+    Plant.create(name: plant_name, height: height, exposure: exposure, description: description, image: image)
   end
 end
 
 def plantnames
   aujardin = {
-    arbres_arbustes_ete: "https://www.aujardin.info/plantes/arbres-arbustes-ete.php",
-    arbres_arbustes_printemps: "https://www.aujardin.info/plantes/arbres-arbustes-printemps.php",
-    aromatique: "https://www.aujardin.info/plantes/aromatiques-condimentaires-officinales.php",
-    balcon: "https://www.aujardin.info/plantes/encyclopedie-balcon.php",
-    bassin: "https://www.aujardin.info/plantes/encyclopedie-bassin.php",
-    cactus: "https://www.aujardin.info/plantes/encyclopedie-cactus.php",
-    champignons: "https://www.aujardin.info/champignons/",
-    feuillage: "https://www.aujardin.info/plantes/encyclopedie-jardin-feuillage.php",
-    fleurs_ete: "https://www.aujardin.info/plantes/encyclopedie-jardin-ete.php",
-    fleurs_printemps: "https://www.aujardin.info/plantes/encyclopedie-jardin-printemps.php",
-    fleurs_automne: "https://www.aujardin.info/plantes/encyclopedie-jardin-automne.php",
-    fleurs_hiver: "https://www.aujardin.info/plantes/encyclopedie-jardin-hiver.php",
-    fleurs_vivaces_ete: "https://www.aujardin.info/plantes/fleurs-vivaces-ete.php",
-    fleurs_vivaces_printemps: "https://www.aujardin.info/plantes/fleurs-vivaces-printemps.php",
-    haies: "https://www.aujardin.info/plantes/encyclopedie-haies.php",
-    jardin_tropical: "https://www.aujardin.info/plantes/encyclopedie-jardin-tropical.php",
-    jardin_sud: "https://www.aujardin.info/plantes/encyclopedie-jardin-sud.php",
-    orchidee: "https://www.aujardin.info/plantes/encyclopedie-orchidees.php",
-    palmier: "https://www.aujardin.info/plantes/palmiers-bananiers-cycas.php",
-    potager: "https://www.aujardin.info/plantes/encyclopedie-potager.php",
-    sauvage: "https://www.aujardin.info/plantes/sauvages.php",
-    verger: "https://www.aujardin.info/plantes/encyclopedie-verger.php"
+    intérieures: "https://www.aujardin.info/plantes/encyclopedie-jardin-tropical.php",
+    # arbres_arbustes_ete: "https://www.aujardin.info/plantes/arbres-arbustes-ete.php",
+    # arbres_arbustes_printemps: "https://www.aujardin.info/plantes/arbres-arbustes-printemps.php",
+    # aromatique: "https://www.aujardin.info/plantes/aromatiques-condimentaires-officinales.php",
+    # balcon: "https://www.aujardin.info/plantes/encyclopedie-balcon.php",
+    # bassin: "https://www.aujardin.info/plantes/encyclopedie-bassin.php",
+    # cactus: "https://www.aujardin.info/plantes/encyclopedie-cactus.php",
+    # champignons: "https://www.aujardin.info/champignons/",
+    # feuillage: "https://www.aujardin.info/plantes/encyclopedie-jardin-feuillage.php",
+    # fleurs_ete: "https://www.aujardin.info/plantes/encyclopedie-jardin-ete.php",
+    # fleurs_printemps: "https://www.aujardin.info/plantes/encyclopedie-jardin-printemps.php",
+    # fleurs_automne: "https://www.aujardin.info/plantes/encyclopedie-jardin-automne.php",
+    # fleurs_hiver: "https://www.aujardin.info/plantes/encyclopedie-jardin-hiver.php",
+    # fleurs_vivaces_ete: "https://www.aujardin.info/plantes/fleurs-vivaces-ete.php",
+    # fleurs_vivaces_printemps: "https://www.aujardin.info/plantes/fleurs-vivaces-printemps.php",
+    # haies: "https://www.aujardin.info/plantes/encyclopedie-haies.php",
+    # jardin_sud: "https://www.aujardin.info/plantes/encyclopedie-jardin-sud.php",
+    # orchidee: "https://www.aujardin.info/plantes/encyclopedie-orchidees.php",
+    # palmier: "https://www.aujardin.info/plantes/palmiers-bananiers-cycas.php",
+    # potager: "https://www.aujardin.info/plantes/encyclopedie-potager.php",
+    # sauvage: "https://www.aujardin.info/plantes/sauvages.php",
+    # verger: "https://www.aujardin.info/plantes/encyclopedie-verger.php"
   }
   
   plant_names = []
