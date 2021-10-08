@@ -6,7 +6,11 @@ class PlantsController < ApplicationController
     
     @plants = Plant.search(params[:search])
     if params[:search].nil? || params[:search] == ""
-      @plants = Plant.order(:name)
+      @plants = Plant.order(:nickname)
+    end
+
+    if params[:category].present?
+      @plants = @plants.where(category: params[:category]).order(:nickname)
     end
 
     respond_to do |format|

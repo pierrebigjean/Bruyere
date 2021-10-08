@@ -1,0 +1,23 @@
+<%= render 'shared/topbar' %>
+
+<div class="content-wrapper">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        <%= @categories.each do |category| %>
+          <%= link_to plants_path(category: category) do %>
+            <div class="card">
+              <%= category %>
+            </div>
+          <% end %>
+        <% end %>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<%= render 'shared/bottombar' %>

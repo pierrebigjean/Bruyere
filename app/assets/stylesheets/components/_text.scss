@@ -9,6 +9,12 @@
   font-weight: bold;
 }
 
+.whitetext {
+  color: $bruyere-white;
+  font-size: 15px;
+  font-weight: 400;
+}
+
 .whiteboldtext {
   color: $bruyere-white;
   font-size: 15px;
@@ -17,6 +23,12 @@
 
 .whitelighttext {
   color: $bruyere-white;
+  font-size: 15px;
+  font-weight: lighter;
+}
+
+.darklighttext {
+  color: $bruyere-dark;
   font-size: 15px;
   font-weight: lighter;
 }

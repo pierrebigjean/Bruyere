@@ -23,6 +23,8 @@ import "bootstrap";
 import { initTopBar } from "../components/topbar"
 import { initSortable } from "../plugins/init_sortable"
 import { initWeather } from "../plugins/init_openweather"
+import { initSearchBar } from "../components/searchbar"
+
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -33,6 +35,7 @@ document.addEventListener('turbolinks:load', () => {
   initTopBar();
   initSortable();
   initWeather();
+  initSearchBar();
 });
 
 import "controllers"
