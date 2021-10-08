@@ -1,3 +1,11 @@
+.bigwhitetitle {
+  color: $bruyere-white;
+  font-size: 24px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  text-shadow: 1px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
 .darktitle {
   color: $bruyere-dark;
   font-size: 18px;
@@ -24,11 +32,11 @@
 .whitelighttext {
   color: $bruyere-white;
   font-size: 15px;
-  font-weight: lighter;
+  font-weight: 300;
 }
 
 .darklighttext {
   color: $bruyere-dark;
   font-size: 15px;
-  font-weight: lighter;
+  font-weight: 300;
 }

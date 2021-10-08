@@ -1,0 +1,33 @@
+#encyclopedie {
+  text-align: center;
+  margin: 10px;
+  color: $bruyere-dark;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+#interieures {
+  background-image: image-url('plantes_interieures.jpg');
+  height: 75vh;
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+}
+
+#aromatiques {
+  background-image: image-url('plantes_aromatiques.jpg');
+  height: 200px;
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+}
+
+.plant-description {
+  text-align: right;
+}
+
+#incontournables, #alocasia-sanderiana, #ficus, #philodendron {
+  position: relative;
+  top: -15px;
+  transition: all .5s ease;
+}

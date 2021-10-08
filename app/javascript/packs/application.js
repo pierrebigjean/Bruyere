@@ -24,7 +24,7 @@ import { initTopBar } from "../components/topbar"
 import { initSortable } from "../plugins/init_sortable"
 import { initWeather } from "../plugins/init_openweather"
 import { initSearchBar } from "../components/searchbar"
-
+import { initPlantHome } from "../components/planthome"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -36,6 +36,8 @@ document.addEventListener('turbolinks:load', () => {
   initSortable();
   initWeather();
   initSearchBar();
+  initPlantHome();
 });
 
 import "controllers"
+

@@ -4,6 +4,8 @@ class PagesController < ApplicationController
   end
 
   def plant_home
-    @categories = Plant::CATEGORY
+    @ownership = Ownership.new
+    @locations = Location.all
+    @plants = Plant.all
   end
 end
