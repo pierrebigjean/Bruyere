@@ -5,9 +5,6 @@ const initSelect2 = () => {
   $("#select2category").select2({
   });
 
-  $("#select2watering").select2({
-  });
-
   $("#select2alocasia1").select2({
     dropdownParent: $('#newPlantToLocationModalAlocasia')
   });
@@ -36,6 +33,10 @@ const initSelect2 = () => {
     });
     $(`#select2${index}2`).select2({
       dropdownParent: $(`#newPlantToLocationModal${index}`)
+    });
+
+    
+    $(`#select2watering${index}`).select2({
     });
   })
 };

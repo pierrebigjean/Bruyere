@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-12">
 
-        <% @locations.each do |location| %>
+        <% @locations.each_with_index do |location, index1| %>
           <div class="location-header">
             <div class="darktitle">
               <%= location.name %>
@@ -19,24 +19,24 @@
           <div class="card card-location">
             <div class="carousel">
               <ul class="carousel-container sortable" >
-                <% location.ownerships.each_with_index do |ownership, index| %>
+                <% location.ownerships.each_with_index do |ownership, index2| %>
                   <li>
                      <!-- Button trigger modal -->
-                    <div data-toggle="modal" data-target="#newPlantToLocationModalownership.plant<%=index%>">
+                    <div data-toggle="modal" data-target="#plantOwned<%=index1 + 1%><%=index2%>">
                       <%= image_tag ownership.plant.image, class: "plant-image-round" %>
                     </div>
                     <!-- Modal -->
-                    <div class="modal fade" id="newPlantToLocationModalownership.plant<%=index%>" tabindex="-1" role="dialog" aria-labelledby="newPlantToLocationModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="plantOwned<%=index1 + 1%><%=index2%>" role="dialog" aria-labelledby="plantOwnedLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content card">
                           <div class="modal-header">
-                            <div class="fatdarktitle" id="newPlantToLocationModalLabel"><%= ownership.plant.name %></div>
+                            <div class="fatdarktitle" id="plantOwnedLabel"><%= ownership.plant.name %></div>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
                           <div class="modal-body">
-                            <%= render 'plantowned', plant: ownership.plant, ownership: ownership, index: index %>
+                            <%= render 'plantowned', plant: ownership.plant, ownership: ownership, index: "#{index1 + 1}#{index2}" %>
                           </div>
                         </div>
                       </div>
