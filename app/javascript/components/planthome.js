@@ -37,7 +37,7 @@ const initPlantHome = () => {
   const philodendron = document.getElementById("philodendron")
   if (philodendron) {
     window.addEventListener("scroll", () => {
-      if (window.scrollY < 475) {
+      if (window.scrollY < 500) {
         philodendron.style.opacity = 0;
         philodendron.style.top = "-15px";
       } else {
@@ -50,12 +50,25 @@ const initPlantHome = () => {
   const ficus = document.getElementById("ficus")
   if (ficus) {
     window.addEventListener("scroll", () => {
-      if (window.scrollY < 550) {
+      if (window.scrollY < 600) {
         ficus.style.opacity = 0;
         ficus.style.top = "-15px";
       } else {
         ficus.style.opacity = 1;
         ficus.style.top = "0px";
+      }
+    })
+  }
+
+  const aromatiques = document.getElementById("aromatiques")
+  if (aromatiques) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY < 750) {
+        aromatiques.style.opacity = 0;
+        aromatiques.style.bottom = "-20px";
+      } else {
+        aromatiques.style.opacity = 1;
+        aromatiques.style.bottom = "0px";
       }
     })
   }

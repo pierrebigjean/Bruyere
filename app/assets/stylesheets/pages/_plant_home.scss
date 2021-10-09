@@ -15,8 +15,12 @@
 }
 
 #aromatiques {
+  opacity: 0;
+  position: relative;
+  bottom: -20px;
+  transition: all .8s ease;
   background-image: image-url('plantes_aromatiques.jpg');
-  height: 200px;
+  height: 200px;  
   background-size: cover;
   justify-content: center;
   align-items: center;

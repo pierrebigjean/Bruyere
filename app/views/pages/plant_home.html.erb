@@ -32,24 +32,19 @@
               <% alocasia = @plants.select { |plant| plant.name == "alocasia_sanderiana" }.first %>
               <%= image_tag alocasia.image, class: "plant-image" %>
             </div>
-          </div>
-          <!-- Modal -->
-          <div class="modal fade" id="newPlantToLocationModalAlocasia" tabindex="-1" role="dialog" aria-labelledby="newPlantToLocationModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="newPlantToLocationModalLabelAlocasia"><%= alocasia.name %></h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <%= simple_form_for @ownership, url: plant_ownerships_path(alocasia), method: "POST" do |f| %>
-                    <%= f.input :location_id, collection: @locations  %>
-                    <%= f.input :last_watering_date, as: :date, class: "form-control" %>
-                    <%= f.input :watering_frequency %>
-                    <%= f.button :submit, "save", class: "btn btn-primary" %>
-                  <% end %>
+            <!-- Modal -->
+            <div class="modal fade" id="newPlantToLocationModalAlocasia" tabindex="-1" role="dialog" aria-labelledby="newPlantToLocationModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content card">
+                  <div class="modal-header">
+                    <div class="fatdarktitle" id="newPlantToLocationModalLabel"><%= alocasia.name %></div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <%= render 'shared/plant', locations: @locations, plant: alocasia, ownership: @ownership %>
+                  </div>
                 </div>
               </div>
             </div>
@@ -61,29 +56,24 @@
               <% philodendron = @plants.select { |plant| plant.name == "philodendron" }.first %>
               <%= image_tag philodendron.image, class: "plant-image" %>
             </div>
-            <div class="darklighttext" style="text-align: left;">
-              Le philodendron est une très belle plante d’intérieur au feuillage décoratif et facile d’entretien.
-            </div>
-          </div>
-          <!-- Modal -->
-          <div class="modal fade" id="newPlantToLocationModalPhilodendron" tabindex="-1" role="dialog" aria-labelledby="newPlantToLocationModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="newPlantToLocationModalLabelPhilodendron"><%= philodendron.name %></h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <%= simple_form_for @ownership, url: plant_ownerships_path(philodendron), method: "POST" do |f| %>
-                    <%= f.input :location_id, collection: @locations  %>
-                    <%= f.input :last_watering_date, as: :date, class: "form-control" %>
-                    <%= f.input :watering_frequency %>
-                    <%= f.button :submit, "save", class: "btn btn-primary" %>
-                  <% end %>
+            <!-- Modal -->
+            <div class="modal fade" id="newPlantToLocationModalPhilodendron" tabindex="-1" role="dialog" aria-labelledby="newPlantToLocationModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content card">
+                  <div class="modal-header">
+                    <div class="fatdarktitle" id="newPlantToLocationModalLabel"><%= philodendron.name %></div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <%= render 'shared/plant', locations: @locations, plant: philodendron, ownership: @ownership %>
+                  </div>
                 </div>
               </div>
+            </div>
+            <div class="darklighttext" style="text-align: left;">
+              Le philodendron est une très belle plante d’intérieur au feuillage décoratif et facile d’entretien.
             </div>
           </div>
 
@@ -96,24 +86,19 @@
               <% ficus = @plants.select { |plant| plant.name == "ficus-lyrata" }.first %>
               <%= image_tag ficus.image, class: "plant-image" %>
             </div>
-          </div>
-          <!-- Modal -->
-          <div class="modal fade" id="newPlantToLocationModalFicus" tabindex="-1" role="dialog" aria-labelledby="newPlantToLocationModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="newPlantToLocationModalLabelFicus"><%= ficus.name %></h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <%= simple_form_for @ownership, url: plant_ownerships_path(ficus), method: "POST" do |f| %>
-                    <%= f.input :location_id, collection: @locations  %>
-                    <%= f.input :last_watering_date, as: :date, class: "form-control" %>
-                    <%= f.input :watering_frequency %>
-                    <%= f.button :submit, "save", class: "btn btn-primary" %>
-                  <% end %>
+            <!-- Modal -->
+            <div class="modal fade" id="newPlantToLocationModalFicus" tabindex="-1" role="dialog" aria-labelledby="newPlantToLocationModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content card">
+                  <div class="modal-header">
+                    <div class="fatdarktitle" id="newPlantToLocationModalLabel"><%= ficus.name %></div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <%= render 'shared/plant', locations: @locations, plant: ficus, ownership: @ownership %>
+                  </div>
                 </div>
               </div>
             </div>
