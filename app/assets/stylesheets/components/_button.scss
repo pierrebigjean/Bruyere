@@ -27,6 +27,10 @@ a {
   }
 }
 
+.buttonred {
+  background-color: $bruyere-red;
+}
+
 .text-link {
   &:active {
     color: $bruyere-light-grey;
@@ -36,10 +40,10 @@ a {
   }
 }
 
-.add-location {
+#add-location {
   position: absolute;
-  bottom: 0px;
-  right: 0px;
+  bottom: 15px;
+  right: 15px;
 }
 
 .add-plant {

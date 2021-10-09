@@ -7,6 +7,12 @@ class OwnershipsController < ApplicationController
     redirect_to locations_path, notice: "Your ownership has been registered"
   end
 
+  def update
+    @ownership = Ownership.find(params[:id])
+    @ownership.update(ownerships_params)
+    redirect_to locations_path, notice: "Your ownership has been successfully updated"
+  end
+
   def destroy
     @ownership = Ownership.find(params[:id])
     @ownership.destroy

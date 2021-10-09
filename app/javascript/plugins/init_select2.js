@@ -5,6 +5,9 @@ const initSelect2 = () => {
   $("#select2category").select2({
   });
 
+  $("#select2watering").select2({
+  });
+
   $("#select2alocasia1").select2({
     dropdownParent: $('#newPlantToLocationModalAlocasia')
   });

@@ -78,7 +78,6 @@ const initPlant = () => {
     const scrolldown = modal.querySelector(".scrolldown")
     if (scrolldown) {
       scrolldown.addEventListener("click", () => {
-        console.log(modal.scrollHeight)
         modal.scrollTo({
           top: modal.scrollHeight,
           behavior: "smooth"
