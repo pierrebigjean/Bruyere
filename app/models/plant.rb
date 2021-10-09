@@ -4,11 +4,13 @@ class Plant < ApplicationRecord
 
   validates :name, presence: true
 
+  CATEGORY = %w(Intérieures Aromatiques)
+
   include PgSearch::Model
   pg_search_scope :search,
-    against: [ :exposure, :name, :height ],
+    against: [ :exposure, :name, :nickname, :height ],
     using: {
-      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+      tsearch: { prefix: true }
     }
 
 end

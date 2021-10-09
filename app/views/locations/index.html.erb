@@ -19,19 +19,24 @@
             <div class="carousel">
               <ul class="carousel-container" id="sortable" >
                 <% location.ownerships.each do |ownership| %>
-                  <li class="card card-plant-small">
-                    <%= ownership.plant.name %>
+                  <li>
+                    <%= image_tag ownership.plant.image, class: "plant-image-round" %>
                   </li>
                 <% end %>
               </ul>
             </div>
-
+            <%= link_to plants_path do %>
+              <div class= "button add-plant" >
+                <i class="fas fa-plus"></i>
+                <%# <div class="greytext bottom-bar-text"></div> %>
+              </div>
+            <% end %>
           </div>
         <% end %>
       </div>
 
       <!-- Button trigger modal -->
-      <div class="button-add" data-toggle="modal" data-target="#newLocationModal">
+      <div class="button add-location" data-toggle="modal" data-target="#newLocationModal">
         <i class="fas fa-plus"></i>
       </div>
 
@@ -39,24 +44,20 @@
   </div>
 </div>
 
-<%= render 'shared/bottombar', datasource: @datasource %>
+<%= render 'shared/bottombar' %>
 
 <!-- Modal -->
 <div class="modal fade" id="newLocationModal" tabindex="-1" role="dialog" aria-labelledby="newLocationModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content card">
       <div class="modal-header">
-        <h5 class="modal-title" id="newLocationModalLabel">Modal title</h5>
+        <div class="fatdarktitle" id="newLocationModalLabel">Add a location</div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <%= render 'location-form', location: @location %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

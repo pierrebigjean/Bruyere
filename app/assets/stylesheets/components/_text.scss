@@ -1,6 +1,32 @@
+.bigwhitetitle {
+  color: $bruyere-white;
+  font-size: 24px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  text-shadow: 1px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
 .darktitle {
   color: $bruyere-dark;
   font-size: 18px;
+}
+
+.fatdarktitle {
+  color: $bruyere-dark;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.whitetext {
+  color: $bruyere-white;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.darktext {
+  color: $bruyere-dark;
+  font-size: 15px;
+  font-weight: 400;
 }
 
 .whiteboldtext {
@@ -12,5 +38,11 @@
 .whitelighttext {
   color: $bruyere-white;
   font-size: 15px;
-  font-weight: lighter;
+  font-weight: 300;
+}
+
+.darklighttext {
+  color: $bruyere-dark;
+  font-size: 15px;
+  font-weight: 300;
 }

@@ -1,0 +1,27 @@
+#plant-name {
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 145px;
+  text-shadow: 1px 5px 10px rgba(0, 0, 0, 0.8);
+  z-index: 5;
+  height: 90px;
+  overflow: hidden;
+}
+
+.category-title {
+  margin-bottom: 10px;
+}
+
+.plant-header {
+  display: flex;
+  margin: 15px;
+}
+
+.plant-content {
+  margin: 10px 0px;
+  margin-right: 20px;
+  background-color: $bruyere-light-blue;
+  padding: 20px;
+  border-top-right-radius: 50px;
+}

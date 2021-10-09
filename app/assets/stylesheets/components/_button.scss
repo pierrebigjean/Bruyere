@@ -1,11 +1,11 @@
-.button-add {
+.button {
+  border: none;
   transition: all 0.3s ease;
   border-radius: 10px;
   background-color: $bruyere-blue;
   padding: 5px 15px;
   font-weight: 500;
-  margin: 15px;
-  color: white;
+  color: $bruyere-white;
   
   &:active {
     color: $bruyere-dark;
@@ -17,25 +17,30 @@
   }
 }
 
-.button-small {
-  font-size: 20px;
-  transition: all 0.3s ease;
-  color: $bruyere-dark;
-  .fa-question-circle {
-    position: relative;
-    bottom: 5px;
-    right: 5px;
-  }
-  &:active {
-    color: $bruyere-light-blue;
-  }
-  &:hover {
-    color: $bruyere-light-blue;
-  }
+.add-location {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
 }
 
-.button-add-pant-to-location {
+.add-plant {
   position: absolute;
-  right: 10px;
   bottom: 0px;
+  right: 0px;
+  margin: 10px;
+  padding: 2px 10px;
+}
+
+#button-search {
+  border-radius: 50%;
+  margin: 0px;
+  height: 30px;
+  width: 30px;
+  padding: 0px;
+  .fas {
+    height: 30px;
+    width: 30px;
+    position: relative;
+    top: 3px;
+  }
 }

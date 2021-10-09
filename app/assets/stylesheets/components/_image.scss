@@ -1,0 +1,31 @@
+.plant-image {
+  border-radius: 10px;
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+  margin: 0px 10px;
+}
+
+.plant-image-small {
+  border-radius: 10px;
+  height: 100px;
+  width: 155px;
+  object-fit: cover;
+  filter: brightness(80%);
+}
+
+.plant-image-big {
+  border-radius: 10px;
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+}
+
+.plant-image-round {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+  margin: 10px;
+}

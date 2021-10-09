@@ -7,16 +7,38 @@
       <div class="col-12">
 
         <div data-controller="refresh-list">
-          <%= form_with url: plants_path, method: :get, remote: true, html: { class: "search-bar", data: { refresh_list_target: 'form' } } do |f| %>
-              <%= f.text_field :search,
-                                class: "search-bar-item", 
-                                placeholder: "Search a plant", 
-                                value: params[:search],
-                                data: {
-                                  refresh_list_target: 'searchInput',
-                                  action: "keyup->refresh-list#update",
-                                } %>
-          <% end %>
+          <div class="search-bar">
+            <%= form_with url: plants_path, method: :get, remote: true, html: { data: { refresh_list_target: 'form' } } do |f| %>
+                <%= f.text_field :search,
+                                  class: "search-bar-item", 
+                                  style: "border-right: 1px solid rgb(226, 225, 225);",
+                                  placeholder: "Search a plant", 
+                                  value: params[:search],
+                                  data: {
+                                    refresh_list_target: 'searchInput',
+                                    action: "keyup->refresh-list#update",
+                                  } %>
+            <% end %>
+
+            <%= form_tag plants_path, method: :get do %>
+              <div class="d-flex">
+                <div class="search-bar-item search-bar-select">
+                  <%= select_tag :category,
+                    options_for_select(Plant::CATEGORY, selected: params[:category])
+                  %>
+                </div>
+                <button name="button" type="submit" class="button" id="button-search">
+                  <i class="fas fa-leaf"></i>
+                </button>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="category-title">
+            <div class="fatdarktitle">
+              <%= params[:category] %> (<%= @plants.length %>)
+            </div>
+          </div>
 
           <%= render 'list', plants: @plants %>
 
@@ -28,4 +50,4 @@
   </div>
 </div>
 
-<%= render 'shared/bottombar', datasource: @datasource %>
+<%= render 'shared/bottombar' %>

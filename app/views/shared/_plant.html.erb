@@ -1,0 +1,34 @@
+<div class="plant-header">
+  <%= image_tag plant.image, class: "plant-image-big" %>
+  <div style="margin-left: 10px;">
+    <div class="darktitle">
+      <%= plant.nickname %>
+    </div>
+    <div class="darktext">
+      Category: <%= plant.category %>
+    </div>
+    <div class="darktext">
+      Height: <%= plant.height %>
+    </div>
+    <div class="darktext">
+      Exposure: <%= plant.exposure %>
+    </div>
+  </div>
+</div>
+
+<div class="plant-content ">
+  <div class="darktext">
+    <%= plant.description %>
+  </div>
+</div>
+
+<div class="card">
+  <%= simple_form_for ownership, url: plant_ownerships_path(plant), method: "POST" do |f| %>
+    <%= f.input :location_id, collection: locations  %>
+    <%= f.input :last_watering_date, as: :date, class: "form-control" %>
+    <%= f.input :watering_frequency %>
+    <%= f.button :submit, "Add this plant", class: "button" %>
+  <% end %>
+</div>
+
+
