@@ -1,0 +1,46 @@
+<div class="plant-header">
+  <%= image_tag plant.image, class: "plant-image-big" %>
+  <div class="plant-stats">
+    <div class="darktitle" style="fleX-grow: 1;">
+      <%= plant.nickname %>
+    </div>
+    <div class="darktext">
+      <strong>Categorie:</strong> <%= plant.category %>
+    </div>
+    <div class="darktext">
+      <strong>Taille:</strong> <%= plant.height %>
+    </div>
+    <div class="darktext">
+      <strong>Exposition:</strong> <%= plant.exposure %>
+    </div>
+  </div>
+</div>
+
+<div class="plant-ownership-status">
+  <div style="width: 50%">
+    <div class="darktext">
+      <strong>Dernier arrosage</strong>
+    </div>
+    <%= ownership.last_watering_date %>
+  </div>
+  <div style="width: 50%">
+    <div class="darktext">
+      <strong>Fréquence d'arrosage</strong>
+    </div>
+    <%= simple_form_for ownership, url: plant_ownership_path(plant, ownership), method: :patch do |f| %>
+      <%= f.input :watering_frequency, :collection => Ownership::FREQUENCY, input_html: { id: "select2watering", style: "width: 100%" }, label: false, selected: "#{ownership.watering_frequency}" %>
+      <%= f.button :submit, "Modifier", class: "button", style: "margin-bottom: 15px;" %>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="plant-content" style="margin-bottom: 0px;">
+  <div class="darktext">
+    <%= plant.description %>
+  </div>
+</div>
+
+<div style="margin: 15px">
+  <%= link_to "Supprimer", plant_ownership_path(plant, ownership), method: "DELETE", class: "button buttonred" %>
+</div>

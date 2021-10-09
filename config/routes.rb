@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "plant_home", to: 'pages#plant_home'
 
   resources :plants, only: [ :index ] do
-    resources :ownerships, only: [ :create, :destroy ]
+    resources :ownerships, only: [ :create, :destroy, :update ]
   end
 
   resources :locations, only: [ :index, :create, :update, :destroy ]

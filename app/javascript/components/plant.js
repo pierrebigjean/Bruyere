@@ -1,4 +1,4 @@
-const initPlantHome = () => {
+const initPlant = () => {
   const interieures = document.getElementById("interieures")
   if (interieures) {
     window.addEventListener("scroll", () => {
@@ -73,6 +73,19 @@ const initPlantHome = () => {
     })
   }
 
+  const modals = document.querySelectorAll(".modal-body")
+  modals.forEach((modal) => {
+    const scrolldown = modal.querySelector(".scrolldown")
+    if (scrolldown) {
+      scrolldown.addEventListener("click", () => {
+        modal.scrollTo({
+          top: modal.scrollHeight,
+          behavior: "smooth"
+        });
+      })
+    }
+  })
+
 }
 
-export { initPlantHome }
+export { initPlant }

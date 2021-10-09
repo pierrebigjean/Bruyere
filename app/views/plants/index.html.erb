@@ -12,7 +12,7 @@
                 <%= f.text_field :search,
                                   class: "search-bar-item", 
                                   style: "border-right: 1px solid rgb(226, 225, 225);",
-                                  placeholder: "Search a plant", 
+                                  placeholder: "Recherche", 
                                   value: params[:search],
                                   data: {
                                     refresh_list_target: 'searchInput',
@@ -24,10 +24,11 @@
               <div class="d-flex">
                 <div class="search-bar-item search-bar-select">
                   <%= select_tag :category,
-                    options_for_select(Plant::CATEGORY, selected: params[:category])
+                    options_for_select(Plant::CATEGORY, selected: params[:category]),
+                    id: 'select2category'
                   %>
                 </div>
-                <button name="button" type="submit" class="button" id="button-search">
+                <button name="button" type="submit" class="button small-button-circle">
                   <i class="fas fa-leaf"></i>
                 </button>
               </div>
@@ -36,11 +37,11 @@
 
           <div class="category-title">
             <div class="fatdarktitle">
-              <%= params[:category] %> (<%= @plants.length %>)
+              <%= @plants.length %> plantes trouvées
             </div>
           </div>
 
-          <%= render 'list', plants: @plants %>
+          <%= render 'list' %>
 
         </div>
 

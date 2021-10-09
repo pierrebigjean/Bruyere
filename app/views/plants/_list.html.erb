@@ -1,10 +1,10 @@
 <div data-refresh-list-target="list">
   <div class="grid">
-    <% plants.each_with_index do |plant, index| %>
+    <% @plants.each_with_index do |plant, index| %>
       <div class="card card-plant p-0">
         <!-- Button trigger modal -->
         <div data-toggle="modal" data-target="#newPlantToLocationModal<%=index%>">
-          <div class="whitetext" id="plant-name">
+          <div class="whitetext text-link" id="plant-name">
             <%= plant.nickname %>
           </div>
           <%= image_tag plant.image, class: "plant-image-small" %>
@@ -15,18 +15,62 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="newPlantToLocationModalLabel<%=index%>"><%= plant.name %></h5>
+                <div class="fatdarktitle" id="newPlantToLocationModalLabel<%=index%>"><%= plant.name %></div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
+                <div class="plant-header">
+                  <%= image_tag plant.image, class: "plant-image-big" %>
+                  <div class="plant-stats">
+                    <div class="darktitle" style="fleX-grow: 1;">
+                      <%= plant.nickname %>
+                    </div>
+                    <div class="darktext">
+                      <strong>Categorie:</strong> <%= plant.category %>
+                    </div>
+                    <div class="darktext">
+                      <strong>Taille:</strong> <%= plant.height %>
+                    </div>
+                    <div class="darktext">
+                      <strong>Exposition:</strong> <%= plant.exposure %>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="small-button-circle scrolldown">
+                  <i class="fas fa-sort-down"></i>
+                </div>
+
+                <div class="plant-content ">
+                  <div class="darktext">
+                    <%= plant.description %>
+                  </div>
+                </div>
+
+
                 <%= simple_form_for @ownership, url: plant_ownerships_path(plant), method: "POST" do |f| %>
-                  <%= f.input :location_id, collection: @locations  %>
-                  <%= f.input :last_watering_date, as: :date, class: "form-control" %>
-                  <%= f.input :watering_frequency %>
-                  <%= f.button :submit, "save", class: "btn btn-primary" %>
+                  <div class="card form" id="add-plant">
+                    <div class="darktitle mb-2">
+                      <%= plant.nickname %>
+                    </div>
+                    <div class="darktext">
+                      Où mettre cette plante?
+                    </div>
+                    <%= f.input :location_id, collection: @locations, input_html: { id: "select2#{index}1", style: "width: 100%" }, label: false %>
+                    <div class="darktext">
+                      Dernier arrosage
+                    </div>
+                    <%= f.input :last_watering_date, as: :string, input_html: {class: "datepicker"}, label: false %>
+                    <div class="darktext">
+                      Fréquence d'arrosage souhaité
+                    </div>
+                    <%= f.input :watering_frequency, :collection => Ownership::FREQUENCY, input_html: { id: "select2#{index}2", style: "width: 100%" }, label: false %>
+                    <%= f.button :submit, "Ajouter", class: "button" %>
+                  </div>
                 <% end %>
+
               </div>
             </div>
           </div>

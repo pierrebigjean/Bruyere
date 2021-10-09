@@ -12,7 +12,7 @@
 
         <%= link_to plants_path(category: "Intérieures") do %>
           <div class="card" id="interieures">
-            <div class="bigwhitetitle">
+            <div class="bigwhitetitle text-link">
               Intérieures
             </div>
           </div>
@@ -25,7 +25,7 @@
 
           <div class="d-flex mb-5" id="alocasia-sanderiana">
             <div class="darklighttext plant-description">
-              L'Alocasia Sanderiana, ou oreille d'éléphant, orne très bien les petits salons
+              L'<strong>Alocasia Sanderiana</strong>, ou oreille d'éléphant, orne très bien les petits salons
             </div>
             <!-- Button trigger modal -->
             <div data-toggle="modal" data-target="#newPlantToLocationModalAlocasia">
@@ -43,7 +43,7 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <%= render 'shared/plant', locations: @locations, plant: alocasia, ownership: @ownership %>
+                    <%= render 'shared/plant', locations: @locations, plant: alocasia, ownership: @ownership, index: "alocasia" %>
                   </div>
                 </div>
               </div>
@@ -67,19 +67,19 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <%= render 'shared/plant', locations: @locations, plant: philodendron, ownership: @ownership %>
+                    <%= render 'shared/plant', locations: @locations, plant: philodendron, ownership: @ownership, index: "philodendron" %>
                   </div>
                 </div>
               </div>
             </div>
             <div class="darklighttext" style="text-align: left;">
-              Le philodendron est une très belle plante d’intérieur au feuillage décoratif et facile d’entretien.
+              Le <strong>philodendron</strong> est une très belle plante d’intérieur au feuillage décoratif et facile d’entretien.
             </div>
           </div>
 
           <div class="d-flex mb-5" id="ficus">
             <div class="darklighttext plant-description">
-              Cousin du figuier, le Ficus est une très belle plante verte par ses grandes feuilles vert brillant.
+              Cousin du figuier, le <strong>Ficus</strong> est une très belle plante verte par ses grandes feuilles vert brillant.
             </div>
             <!-- Button trigger modal -->
             <div data-toggle="modal" data-target="#newPlantToLocationModalFicus">
@@ -97,7 +97,7 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <%= render 'shared/plant', locations: @locations, plant: ficus, ownership: @ownership %>
+                    <%= render 'shared/plant', locations: @locations, plant: ficus, ownership: @ownership, index: "ficus" %>
                   </div>
                 </div>
               </div>
@@ -106,9 +106,9 @@
 
         </div>
 
-        <%= link_to plants_path(category: "Intérieures") do %>
+        <%= link_to plants_path(category: "Aromatiques") do %>
           <div class="card" id="aromatiques">
-            <div class="bigwhitetitle">
+            <div class="bigwhitetitle text-link">
               Aromatiques
             </div>
           </div>

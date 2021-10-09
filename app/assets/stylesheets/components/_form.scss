@@ -1,3 +1,21 @@
 .form-control {
   border-radius: 50px;
+  height: 30px;
+  border: 1px solid $bruyere-light-grey;
+}
+
+.form {
+  padding: 10px;
+  margin: 20px;
+}
+
+#add-plant {
+  padding-bottom: 30px;
+  margin-bottom: 0;
+  z-index: 9;
+}
+.select2-container--default .select2-selection--single {
+  border-radius: 50px;
+  height: 30px;
+  border: 1px solid $bruyere-light-grey;
 }
