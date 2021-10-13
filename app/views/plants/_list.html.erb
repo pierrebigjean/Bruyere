@@ -56,15 +56,15 @@
                       <%= plant.nickname %>
                     </div>
                     <div class="darktext">
-                      Où mettre cette plante?
+                      <strong> Où mettre cette plante?</strong>
                     </div>
                     <%= f.input :location_id, collection: @locations, input_html: { id: "select2#{index}1", style: "width: 100%" }, label: false %>
                     <div class="darktext">
-                      Dernier arrosage
+                      <strong>Dernier arrosage</strong>                    
                     </div>
                     <%= f.input :last_watering_date, as: :string, input_html: {class: "datepicker"}, label: false %>
                     <div class="darktext">
-                      Fréquence d'arrosage souhaité
+                      <strong>Fréquence d'arrosage souhaité</strong>                    
                     </div>
                     <%= f.input :watering_frequency, :collection => Ownership::FREQUENCY, input_html: { id: "select2#{index}2", style: "width: 100%" }, label: false %>
                     <%= f.button :submit, "Ajouter", class: "button" %>

@@ -1,15 +1,22 @@
 <%= simple_form_for location do |f| %>
   <div style="margin: 15px;">
-    <%= f.input :name, prompt: "Choose a name" %>
+    <div class="darktext">
+      <strong>Nom de l'espace</strong>
+    </div>
+    <%= f.input :name, label: false %>
     <div class="d-flex justify-content-around">
-      <div class="darktext">
-        Situation
+      <div>
+        <div class="darktext">
+          <strong>Situation</strong>
+        </div>
+        <%= f.input :category, :collection => Location::CATEGORY, as: :radio_buttons %>
       </div>
-      <%= f.input :category, :collection => Location::CATEGORY, as: :radio_buttons, label: false %>
-      <div class="darktext">
-        Luminosité
+      <div>
+        <div class="darktext">
+          <strong>Luminosité</strong>
+        </div>
+        <%= f.input :brightness, :collection => Location::BRIGHTNESS, as: :radio_buttons %>
       </div>
-      <%= f.input :brightness, :collection => Location::BRIGHTNESS, as: :radio_buttons, label: false %>
     </div>
     <%= f.submit class: "button" %>
   </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_09_103458) do
+ActiveRecord::Schema.define(version: 2021_10_09_212833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_10_09_103458) do
     t.bigint "location_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "watering_frequency"
+    t.string "watering_frequency"
     t.index ["location_id"], name: "index_ownerships_on_location_id"
     t.index ["plant_id"], name: "index_ownerships_on_plant_id"
   end

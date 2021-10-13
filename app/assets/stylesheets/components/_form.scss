@@ -19,3 +19,15 @@
   height: 30px;
   border: 1px solid $bruyere-light-grey;
 }
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+  background-color: $bruyere-blue;
+}
+
+legend {
+  display: none;
+}
+
+.form-check-label {
+  font-size: 15px;
+}

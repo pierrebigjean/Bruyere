@@ -19,18 +19,20 @@
 <div class="plant-ownership-status">
   <div style="width: 50%">
     <div class="darktext">
-      <strong>Dernier arrosage</strong>
-    </div>
-    <%= ownership.last_watering_date %>
-  </div>
-  <div style="width: 50%">
-    <div class="darktext">
       <strong>Fréquence d'arrosage</strong>
     </div>
     <%= simple_form_for ownership, url: plant_ownership_path(plant, ownership), method: :patch do |f| %>
-      <%= f.input :watering_frequency, :collection => Ownership::FREQUENCY, input_html: { id: "select2watering", style: "width: 100%" }, label: false, selected: "#{ownership.watering_frequency}" %>
+      <%= f.input :watering_frequency, :collection => Ownership::FREQUENCY, input_html: { id: "select2watering#{index}", style: "width: 100%" }, label: false, selected: "#{ownership.watering_frequency}" %>
       <%= f.button :submit, "Modifier", class: "button", style: "margin-bottom: 15px;" %>
     <% end %>
+  </div>
+  <div style="width: 40%;">
+    <div class="darktext">
+      <strong>Dernier arrosage</strong>
+    </div>
+    <div style="margin-top: 5px;">
+      <%= ownership.last_watering_date %>
+    </div>
   </div>
 </div>
 
@@ -41,6 +43,6 @@
   </div>
 </div>
 
-<div style="margin: 15px">
+<div style="margin: 15px; text-align: end;">
   <%= link_to "Supprimer", plant_ownership_path(plant, ownership), method: "DELETE", class: "button buttonred" %>
 </div>

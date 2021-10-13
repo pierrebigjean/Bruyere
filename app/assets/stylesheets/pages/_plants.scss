@@ -32,23 +32,3 @@
   padding: 20px;
   border-top-right-radius: 50px;
 }
-
-.scrolldown {
-  position: sticky;
-  top: 81vh;
-  z-index: 8;
-  background-color: $bruyere-green;
-  text-align: center;
-  left: 45%;
-  color: $bruyere-white;
-  box-shadow: 0 1px 8px rgba(0,0,0,0.2);
-  transition: all .5s ease;
-  &:active {
-    color: $bruyere-dark;
-    background-color: $bruyere-light-blue;
-  }
-  &:hover {
-    color: $bruyere-dark;
-    background-color: $bruyere-light-blue;
-  }
-}
