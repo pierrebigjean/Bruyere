@@ -7,16 +7,39 @@
       <div class="col-12">
 
         <% @locations.each_with_index do |location, index1| %>
-          <div class="location-header">
-            <div class="darktitle">
-              <%= location.name %>
-            </div>
-            <div class="d-flex">
-              <%= location.category %>
-              <%= location.brightness %>
-            </div>
-          </div>
           <div class="card card-location">
+            <div class="location-header">
+              <div>
+                <div class="darktitle">
+                  <%= location.name.capitalize %> 
+                </div>
+                <%# <div class="darktext"> %>
+                  <%# <% plantes = location.ownerships.length > 1 ? "plantes" : "plante" %>
+                  <%# <%= location.ownerships.length <%= plantes %>
+                <%# </div> %>
+              </div>
+              <div class="category-brightness">
+                <% case location.category %>
+                <% when "Intérieur" %>
+                <i class="fas fa-door-closed"></i>
+                <% when "Extérieur" %>
+                <i class="fas fa-door-open"></i>
+                <% end %>
+                <% case location.brightness %>
+                <% when "Basse" %>
+                <i class="fas fa-cloud"></i>
+                <% when "Moyenne" %>
+                <i class="fas fa-cloud-sun"></i>
+                <% when "Haute" %>
+                <i class="fas fa-sun"></i>
+                <% end %>
+              </div>
+            </div>
+            <div class="dropdown-location">
+              <div class="small-button-circle location-modify">
+                <i class="fas fa-wrench"></i>
+              </div>
+            </div>
             <div class="carousel">
               <ul class="carousel-container sortable" >
                 <% location.ownerships.each_with_index do |ownership, index2| %>
@@ -47,13 +70,12 @@
             </div>
           </div>
         <% end %>
-      </div>
-
       <!-- Button trigger modal -->
       <div class="button" id="add-location" data-toggle="modal" data-target="#newLocationModal">
         <i class="fas fa-plus"></i>
       </div>
 
+      </div>
     </div>
   </div>
 </div>

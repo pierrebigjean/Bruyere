@@ -1,6 +1,10 @@
 .location-header {
   display: flex;
   justify-content: space-between;
+  width: 81%;
+  margin-left: 10px;
+  margin-top: 13px;
+  margin-bottom: 10px;
 }
 
 .plant-ownership-status {
@@ -9,5 +13,20 @@
   display: flex;
   padding-top: 10px;
   border-top: 1px solid $bruyere-light-grey;
+  justify-content: space-between;
+}
+
+.dropdown-location {
+  z-index: 8;
+  position: absolute;
+  right: 10px;
+  background-color: white;
+  margin-top: 10px;
+}
+
+.category-brightness {
+  display: flex;
+  align-items: center;
+  width: 45px;
   justify-content: space-between;
 }

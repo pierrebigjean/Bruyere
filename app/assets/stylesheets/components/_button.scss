@@ -41,9 +41,9 @@ a {
 }
 
 #add-location {
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
+  width: fit-content;
+  float: right;
+  margin: 10px;
 }
 
 .add-plant {
@@ -66,4 +66,28 @@ a {
     position: relative;
     top: 3px;
   }
+}
+
+.scrolldown, .location-modify {
+  position: sticky;
+  top: 81vh;
+  z-index: 8;
+  background-color: $bruyere-green;
+  text-align: center;
+  left: 45%;
+  color: $bruyere-white;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+  transition: all .5s ease;
+  &:active {
+    color: $bruyere-dark;
+    background-color: $bruyere-light-blue;
+  }
+  &:hover {
+    color: $bruyere-dark;
+    background-color: $bruyere-light-blue;
+  }
+}
+
+.location-modify {
+  background-color: $bruyere-blue;
 }

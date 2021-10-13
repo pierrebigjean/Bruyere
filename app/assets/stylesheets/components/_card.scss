@@ -8,11 +8,15 @@
 
 .card-location, .card-plant {
   display: flex;
-  flex-direction: row;
+}
+
+.card-location {
+  margin-top: 10px;
 }
 
 .card-plant {
   width: fit-content;
+  flex-direction: row;
 }
 
 .card-plant-small {

@@ -6,6 +6,6 @@ class Location < ApplicationRecord
   BRIGHTNESS = %w(Basse Moyenne Haute)
 
   validates :category, inclusion: { in: CATEGORY }
-  validates :brightness, presence: true
+  validates :brightness, inclusion: { in: BRIGHTNESS }
   validates :name, presence: true
 end
