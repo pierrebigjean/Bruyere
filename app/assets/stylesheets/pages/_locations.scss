@@ -1,7 +1,6 @@
 .location-header {
   display: flex;
   justify-content: space-between;
-  width: 81%;
   margin-left: 10px;
   margin-top: 13px;
   margin-bottom: 10px;
@@ -17,16 +16,20 @@
 }
 
 .dropdown-location {
-  z-index: 8;
-  position: absolute;
-  right: 10px;
-  background-color: white;
-  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 5px;
 }
 
-.category-brightness {
+.location-header-logos {
   display: flex;
   align-items: center;
-  width: 45px;
+  width: 90px;
   justify-content: space-between;
+}
+
+.noplant {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

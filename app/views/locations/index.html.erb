@@ -18,7 +18,7 @@
                   <%# <%= location.ownerships.length <%= plantes %>
                 <%# </div> %>
               </div>
-              <div class="category-brightness">
+              <div class="location-header-logos">
                 <% case location.category %>
                 <% when "Intérieur" %>
                 <i class="fas fa-door-closed"></i>
@@ -33,14 +33,21 @@
                 <% when "Haute" %>
                 <i class="fas fa-sun"></i>
                 <% end %>
-              </div>
-            </div>
-            <div class="dropdown-location">
-              <div class="small-button-circle location-modify">
-                <i class="fas fa-wrench"></i>
+                <div class="dropdown-location">
+                  <div class="small-button-circle location-modify">
+                    <i class="fas fa-wrench"></i>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="carousel">
+              <% if location.ownerships == [] %>
+                <div class="noplant">
+                  <div class="darklighttext">
+                    Pas de plantes
+                  </div>
+                </div>
+              <% end %>
               <ul class="carousel-container sortable" >
                 <% location.ownerships.each_with_index do |ownership, index2| %>
                   <li>
