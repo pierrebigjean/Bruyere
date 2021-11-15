@@ -1,0 +1,27 @@
+<%= simple_form_for location, url: location_path(location), method: :patch do |f| %>
+  <div style="margin: 15px;">
+    <div class="darktext">
+      <strong>Nom de l'emplacement</strong>
+    </div>
+    <%= f.input :name, label: false, placeholder: location.name %>
+    <div class="d-flex justify-content-around">
+      <div>
+        <div class="darktext">
+          <strong>Situation</strong>
+        </div>
+        <%= f.input :category, :collection => Location::CATEGORY, as: :radio_buttons %>
+      </div>
+      <div>
+        <div class="darktext">
+          <strong>Luminosité</strong>
+        </div>
+        <%= f.input :brightness, :collection => Location::BRIGHTNESS, as: :radio_buttons %>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between">
+      <%= f.button :submit, "Modifier", class: "button" %>
+      <%= link_to "Supprimer", location_path(location), method: "DELETE", class: "button buttonred" %>
+    </div>
+  </div>
+
+<% end %>

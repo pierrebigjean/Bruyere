@@ -8,4 +8,8 @@ class PagesController < ApplicationController
     @locations = Location.all
     @plants = Plant.all
   end
+
+  def calendar
+    @ownerships = Ownership.all
+  end
 end

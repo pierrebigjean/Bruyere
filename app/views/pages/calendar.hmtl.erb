@@ -1,0 +1,20 @@
+<%= simple_form_for @ownership, url: plant_ownerships_path(plant), method: "POST" do |f| %>
+  <div class="card form" id="add-plant">
+    <div class="darktitle mb-2">
+      <%= plant.nickname %>
+    </div>
+    <div class="darktext">
+      <strong> Où mettre cette plante?</strong>
+    </div>
+    <%= f.input :location_id, collection: @locations, input_html: { id: "select2#{index}1", style: "width: 100%" }, label: false %>
+    <div class="darktext">
+      <strong>Dernier arrosage</strong>                    
+    </div>
+    <%= f.input :last_watering_date, as: :string, input_html: { class: "datepicker" }, label: false %>
+    <div class="darktext">
+      <strong>Fréquence d'arrosage souhaité</strong>                    
+    </div>
+    <%= f.input :watering_frequency, :collection => Ownership::FREQUENCY, input_html: { id: "select2#{index}2", style: "width: 100%" }, label: false %>
+    <%= f.button :submit, "Ajouter", class: "button" %>
+  </div>
+<% end %>

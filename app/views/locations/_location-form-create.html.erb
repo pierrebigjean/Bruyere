@@ -1,7 +1,7 @@
 <%= simple_form_for location do |f| %>
   <div style="margin: 15px;">
     <div class="darktext">
-      <strong>Nom de l'espace</strong>
+      <strong>Nom de l'emplacement</strong>
     </div>
     <%= f.input :name, label: false %>
     <div class="d-flex justify-content-around">
@@ -18,6 +18,6 @@
         <%= f.input :brightness, :collection => Location::BRIGHTNESS, as: :radio_buttons %>
       </div>
     </div>
-    <%= f.submit class: "button" %>
+    <%= f.button :submit, "Ajouter l'emplacement", class: "button" %>
   </div>
 <% end %>
