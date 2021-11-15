@@ -8,13 +8,14 @@
   }
 }
 
-.ownership {
+.watering {
   color: $bruyere-white;
   padding: 0px 4px;
   border-radius: 5px;
+  margin-bottom: 4px;
   background: $bruyere-green;
   height: 20px;
-  width: 40px;
+  width: 30px;
   font-size: 14px;
   overflow-x: auto;
   &::-webkit-scrollbar {
