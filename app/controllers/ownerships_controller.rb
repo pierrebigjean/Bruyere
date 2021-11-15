@@ -22,7 +22,7 @@ class OwnershipsController < ApplicationController
   private
 
   def ownerships_params
-    params.require(:ownership).permit(:last_watering_date, :watering_frequency, :location_id)
+    params.require(:ownership).permit(:start_time, :watering_frequency, :location_id)
   end
 
 end

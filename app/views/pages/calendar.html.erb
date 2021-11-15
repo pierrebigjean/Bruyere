@@ -1,0 +1,15 @@
+<%= render 'shared/topbar' %>
+
+<div class="content-wrapper">
+  <%= month_calendar(events: @ownerships) do |date, ownerships| %>
+    <%= date %>
+
+    <% ownerships.each do |ownership| %>
+      <div class="ownership">
+        <%= ownership.plant.name %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<%= render 'shared/bottombar' %>
