@@ -6,9 +6,9 @@
     </div>
 
     <div class="calendar-header">
-      <%= link_to t('simple_calendar.previous', default: '<'), calendar.url_for_previous_view, class: 'button' %>
-      <span><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-      <%= link_to t('simple_calendar.next', default: '>'), calendar.url_for_next_view, class: 'button' %>
+      <%# <%= link_to t('simple_calendar.previous', default: '<'), calendar.url_for_previous_view, class: 'button' %>
+      <span style="width: 100%; text-align: center;"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+      <%# <%= link_to t('simple_calendar.next', default: '>'), calendar.url_for_next_view, class: 'button' %>
     </div>
 
     <table class="table table-striped">
