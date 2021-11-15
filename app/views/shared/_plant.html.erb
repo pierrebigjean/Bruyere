@@ -1,7 +1,7 @@
 <div class="plant-header">
   <%= image_tag plant.image, class: "plant-image-big" %>
   <div class="plant-stats">
-    <div class="darktitle" style="fleX-grow: 1;">
+    <div class="darktitle" style="flex-grow: 1;">
       <%= plant.nickname %>
     </div>
     <div class="darktext">
@@ -38,7 +38,7 @@
     <div class="darktext">
       <strong>Dernier arrosage</strong>    
     </div>
-    <%= f.input :last_watering_date, as: :string, input_html: {class: "datepicker"}, label: false %>
+    <%= f.input :last_watering_date, as: :string, input_html: { class: "datepicker" }, label: false %>
     <div class="darktext">
       <strong>Fréquence d'arrosage souhaité</strong>       
     </div>

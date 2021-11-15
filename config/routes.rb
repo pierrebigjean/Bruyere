@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   root to: 'pages#home'
   get "plant_home", to: 'pages#plant_home'
+  get "calendar", to: 'pages#calendar'
 
   resources :plants, only: [ :index ] do
     resources :ownerships, only: [ :create, :destroy, :update ]

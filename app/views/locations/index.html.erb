@@ -18,7 +18,7 @@
                   <%# <%= location.ownerships.length <%= plantes %>
                 <%# </div> %>
               </div>
-              <div class="category-brightness">
+              <div class="location-header-logos">
                 <% case location.category %>
                 <% when "Intérieur" %>
                 <i class="fas fa-door-closed"></i>
@@ -33,18 +33,44 @@
                 <% when "Haute" %>
                 <i class="fas fa-sun"></i>
                 <% end %>
-              </div>
-            </div>
-            <div class="dropdown-location">
-              <div class="small-button-circle location-modify">
-                <i class="fas fa-wrench"></i>
+                <div class="dropdown-location">
+                  <!-- Button trigger modal -->
+                  <div data-toggle="modal" data-target="#location<%=index1 + 1%>">
+                    <div class="small-button-circle location-modify">
+                      <i class="fas fa-wrench"></i>
+                    </div>
+                  </div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="location<%=index1 + 1%>" role="dialog" aria-labelledby="locationLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content card" style="height: auto;">
+                        <div class="modal-header">
+                          <div class="fatdarktitle" id="locationLabel">Modifier <%= location.name.capitalize %></div>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <%= render 'location-form-update', location: location %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="carousel">
+              <% if location.ownerships == [] %>
+                <div class="noplant">
+                  <div class="darklighttext">
+                    Pas de plantes
+                  </div>
+                </div>
+              <% end %>
               <ul class="carousel-container sortable" >
                 <% location.ownerships.each_with_index do |ownership, index2| %>
                   <li>
-                     <!-- Button trigger modal -->
+                    <!-- Button trigger modal -->
                     <div data-toggle="modal" data-target="#plantOwned<%=index1 + 1%><%=index2%>">
                       <%= image_tag ownership.plant.image, class: "plant-image-round" %>
                     </div>
@@ -87,13 +113,13 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content card" style="height: auto;">
       <div class="modal-header">
-        <div class="fatdarktitle" id="newLocationModalLabel">Add a location</div>
+        <div class="fatdarktitle" id="newLocationModalLabel">Ajouter un emplacement</div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <%= render 'location-form', location: @location %>
+        <%= render 'location-form-create', location: @location %>
       </div>
     </div>
   </div>
