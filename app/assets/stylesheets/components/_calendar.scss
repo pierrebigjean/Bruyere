@@ -1,0 +1,30 @@
+.simple-calendar {
+  table {
+    min-height: 50vh;
+    border-radius: 5px; 
+  }
+  .today {
+    background-color: $bruyere-white;
+  }
+}
+
+.ownership {
+  color: $bruyere-white;
+  padding: 0px 4px;
+  border-radius: 5px;
+  background: $bruyere-green;
+  height: 20px;
+  width: 40px;
+  font-size: 14px;
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.calendar-header {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
