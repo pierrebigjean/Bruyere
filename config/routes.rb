@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   
   devise_for :users
   
-  root to: 'pages#home'
-  get "plant_home", to: 'pages#plant_home'
+  root to: 'pages#plant_home'
   get "calendar", to: 'pages#calendar'
 
   resources :plants, only: [ :index ] do

@@ -8,7 +8,7 @@ const initWeather = () => {
       .then(response => response.json())
       .then((data) => {
         const weatherIcon = data.weather[0].icon
-        const weatherIconUrl = `http://openweathermap.org/img/w/${weatherIcon}.png`;
+        const weatherIconUrl = `https://openweathermap.org/img/w/${weatherIcon}.png`;
         document.querySelector("#city").innerText = data.name;
         document.querySelector("#weather-description").innerText = data.weather[0].description;
         document.querySelector("#weather-icon").src = weatherIconUrl;
@@ -18,7 +18,7 @@ const initWeather = () => {
 
   navigator.geolocation.getCurrentPosition((data) => {
     const openWeatherKey = document.querySelector(".topbar").dataset.openweatherApiKey
-    const urlCurrent = `http://api.openweathermap.org/data/2.5/weather?lat=${data.coords.latitude}&lon=${data.coords.longitude}&appid=${openWeatherKey}&units=metric`;
+    const urlCurrent = `https://api.openweathermap.org/data/2.5/weather?lat=${data.coords.latitude}&lon=${data.coords.longitude}&appid=${openWeatherKey}&units=metric`;
     fetchWeather(urlCurrent);
   });
 }
