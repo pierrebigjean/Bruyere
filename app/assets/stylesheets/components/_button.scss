@@ -1,5 +1,9 @@
 a {
+  color: $bruyere-dark;
+  font-weight: 500;
+  font-size: large;
   text-decoration: none;
+  margin-bottom: 10px;
   &:active {
     text-decoration: none;
   }
@@ -31,15 +35,6 @@ a {
   background-color: $bruyere-red;
 }
 
-.text-link {
-  &:active {
-    color: $bruyere-light-grey;
-  }
-  &:hover {
-    color: $bruyere-light-grey;
-  }
-}
-
 #add-location {
   width: fit-content;
   float: right;
@@ -60,7 +55,7 @@ a {
   height: 30px;
   width: 30px;
   padding: 0px;
-  .fas {
+  .fas, .far {
     height: 30px;
     width: 30px;
     position: relative;
@@ -90,4 +85,10 @@ a {
 
 .location-modify {
   background-color: $bruyere-blue;
+}
+
+#session-button {
+  background-color: $bruyere-white;
+  color: $bruyere-blue;
+  margin: 10px;
 }

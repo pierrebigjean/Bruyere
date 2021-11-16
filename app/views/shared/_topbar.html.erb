@@ -1,6 +1,5 @@
 <div class="topbar" data-openweather-api-key="<%= ENV['OPENWEATHER_KEY'] %>">
    
-
   <div class="topbar-content">
     <div>
       <div class="whitelighttext" id="date"></div>
@@ -18,18 +17,4 @@
     <span class="topbar-toggler-icon"></span>
   </button> %>
 
-</div>
-
-<div class="collapse navbar-collapse" id="topbarSupportedContent">
-  <ul class="topbar-nav">
-    <li class="nav-item active">
-      <%= link_to "Home", root_path, class: "nav-link" %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "Update profile", edit_user_registration_path, class: "nav-link" %>
-    </li>
-    <li class="nav-item">
-        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-    </li>
-  </ul>
 </div>
