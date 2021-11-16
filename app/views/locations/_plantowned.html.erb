@@ -1,7 +1,7 @@
 <div class="plant-header">
   <%= image_tag plant.image, class: "plant-image-big" %>
   <div class="plant-stats">
-    <div class="darktitle" style="fleX-grow: 1;">
+    <div class="darktitle" style="flex-grow: 1;">
       <%= plant.nickname %>
     </div>
     <div class="darktext">
@@ -12,6 +12,12 @@
     </div>
     <div class="darktext">
       <strong>Exposition:</strong> <%= plant.exposure %>
+    </div>
+    <div class="darktext">
+      <strong>Rusticité:</strong> <%= plant.rusticity %>
+    </div>
+    <div class="darktext">
+      <strong>Floraison:</strong> <%= plant.flowering %>
     </div>
   </div>
 </div>

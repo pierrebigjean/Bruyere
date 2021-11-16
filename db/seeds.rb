@@ -16,6 +16,7 @@ User.destroy_all
 # Plant.destroy_all
 Location.destroy_all
 Ownership.destroy_all
+Watering.destroy_all
 puts "Done!"
 
 # CREATING USER
@@ -33,6 +34,8 @@ def plantscrapper(plant_name, category)
   description = ""
   image = ""
   nickname = ""
+  flowering = ""
+  rusticity = ""
 
   begin
     html_file = URI.open(url, redirect: false).read
@@ -41,38 +44,70 @@ def plantscrapper(plant_name, category)
     exposure = ""
     description = ""
     image = ""
-    nickname = ""    
-    p "HTTP error: #{plant_name}"
+    nickname = ""
+    flowering = ""
+    rusticity = ""    
+    # p "HTTP error: #{plant_name}"
   rescue URI::InvalidURIError
-    p "Encoding error: #{plant_name}"
+    # p "Encoding error: #{plant_name}"
   else
     html_doc = Nokogiri::HTML(html_file)
-    # p html_doc.search('.bgDark')[1]
-    # html_doc.search('.bgDark').each_with_index do |nokogiri, index|
-    #   if nokogiri.children.text == "Hauteur"
-    #     nokogiri
-    #   end
-    # end
     image = html_doc.search('.galerieItem').attr("src").text
-    height = html_doc.search('.bgDark').first(5).last.children.last.text.strip
-    exposure = html_doc.search('.bgLight').first(6).last.children[-2].text.strip
+    html_doc.search('.bgDark').each do |dark|
+      case dark.children.first.text.strip
+      when "Hauteur"
+        height = dark.children.last.text.strip
+      end
+      case dark.children.first(2).last.text.strip
+      when "Rusticité"
+        rusticity = dark.children[-2].text.strip
+      end
+      case dark.children.first(2).last.text.strip
+      when "Exposition"
+        exposure = dark.children[-2].text.strip
+      end
+      if dark.children.text.strip.include?("Floraison")
+        flowering = dark.children.text.gsub("Floraison", "").strip
+      end
+    end
+    html_doc.search('.bgLight').each do |light|
+      case light.children.first.text.strip
+      when "Hauteur"
+        height = light.children.last.text.strip
+      end
+      case light.children.first(2).last.text.strip
+      when "Rusticité"
+        rusticity = light.children[-2].text.strip
+      end
+      case light.children.first(2).last.text.strip
+      when "Exposition"
+        exposure = light.children[-2].text.strip
+      end
+      if light.children.text.strip.include?("Floraison")
+        flowering = light.children.text.gsub("Floraison", "").strip
+      end
+    end
+    # height = html_doc.search('.bgDark').first(5).last.children.last.text.strip
+    # exposure = html_doc.search('.bgLight').first(6).last.children[-2].text.strip
     description = html_doc.search('p').first(12).join(" ")
     nickname = html_doc.search('h1').first.text
-    Plant.create(name: plant_name, height: height, exposure: exposure, description: description, image: image, nickname: nickname, category: category)
+    Plant.create(name: plant_name, height: height, exposure: exposure, description: description, image: image, nickname: nickname, category: category, flowering: flowering, rusticity: rusticity)
   end
 
 end
 
 def plants
   aujardin = {
-    intérieures: "https://www.aujardin.info/plantes/encyclopedie-jardin-tropical.php",
+    aromatiques: "https://www.aujardin.info/plantes/aromatiques-condimentaires-officinales.php",
+    # intérieures: "https://www.aujardin.info/plantes/encyclopedie-jardin-tropical.php",
+    # verger: "https://www.aujardin.info/plantes/encyclopedie-verger.php"
+    # potager: "https://www.aujardin.info/plantes/encyclopedie-potager.php",
+    # champignons: "https://www.aujardin.info/champignons/",
     # arbres_arbustes_ete: "https://www.aujardin.info/plantes/arbres-arbustes-ete.php",
     # arbres_arbustes_printemps: "https://www.aujardin.info/plantes/arbres-arbustes-printemps.php",
-    aromatiques: "https://www.aujardin.info/plantes/aromatiques-condimentaires-officinales.php",
     # balcon: "https://www.aujardin.info/plantes/encyclopedie-balcon.php",
     # bassin: "https://www.aujardin.info/plantes/encyclopedie-bassin.php",
     # cactus: "https://www.aujardin.info/plantes/encyclopedie-cactus.php",
-    # champignons: "https://www.aujardin.info/champignons/",
     # feuillage: "https://www.aujardin.info/plantes/encyclopedie-jardin-feuillage.php",
     # fleurs_ete: "https://www.aujardin.info/plantes/encyclopedie-jardin-ete.php",
     # fleurs_printemps: "https://www.aujardin.info/plantes/encyclopedie-jardin-printemps.php",
@@ -84,9 +119,7 @@ def plants
     # jardin_sud: "https://www.aujardin.info/plantes/encyclopedie-jardin-sud.php",
     # orchidee: "https://www.aujardin.info/plantes/encyclopedie-orchidees.php",
     # palmier: "https://www.aujardin.info/plantes/palmiers-bananiers-cycas.php",
-    # potager: "https://www.aujardin.info/plantes/encyclopedie-potager.php",
     # sauvage: "https://www.aujardin.info/plantes/sauvages.php",
-    # verger: "https://www.aujardin.info/plantes/encyclopedie-verger.php"
   }
 
   plants = {}
@@ -108,7 +141,7 @@ def plants
         end
       end
     end
-    plants[category.to_s.capitalize] = plant_names
+    plants[category.to_s.capitalize.gsub("_", " ")] = plant_names
   end
 
   return plants
