@@ -1,4 +1,10 @@
 <div data-refresh-list-target="list">
+  <div class="category-title">
+    <div class="fatdarktitle">
+      <%= @plants.length %> plantes trouvées
+    </div>
+  </div>
+
   <div class="grid">
     <% @plants.each_with_index do |plant, index| %>
       <div class="card card-plant p-0">

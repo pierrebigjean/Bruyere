@@ -1,5 +1,8 @@
 import { Controller } from "stimulus"
 
+import { initPlant } from "../components/plant"
+import { initFlatpickr } from "../plugins/init_flatpickr"
+
 export default class extends Controller {
   static targets = [ "form", "list", "searchInput" ]
 
@@ -9,6 +12,9 @@ export default class extends Controller {
       .then(response => response.text())
       .then((data) => {
         this.listTarget.outerHTML = data;
+
+        initPlant();
+        initFlatpickr()
       })
   }
 }
