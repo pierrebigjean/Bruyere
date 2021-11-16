@@ -1,24 +1,26 @@
 <div class="plant-header">
   <%= image_tag plant.image, class: "plant-image-big" %>
   <div class="plant-stats">
-    <div class="darktitle" style="flex-grow: 1;">
+    <div class="darktitle" style="flex-grow: 1; margin-bottom: 10px;">
       <%= plant.nickname %>
+      <div class="darktext">
+        <em><%= plant.category %></em>
+      </div>
     </div>
-    <div class="darktext">
-      <strong>Categorie:</strong> <%= plant.category %>
-    </div>
-    <div class="darktext">
-      <strong>Taille:</strong> <%= plant.height %>
-    </div>
-    <div class="darktext">
-      <strong>Exposition:</strong> <%= plant.exposure %>
-    </div>
-    <div class="darktext">
-      <strong>Rusticité:</strong> <%= plant.rusticity %>
-    </div>
-    <div class="darktext">
-      <strong>Floraison:</strong> <%= plant.flowering %>
-    </div>
+  </div>
+</div>
+<div style="margin: 10px 20px; margin-bottom: 0px;">
+  <div class="darktext">
+    <strong>Taille:</strong> <%= plant.height %>
+  </div>
+  <div class="darktext">
+    <strong>Exposition:</strong> <%= plant.exposure %>
+  </div>
+  <div class="darktext">
+    <strong>Rusticité:</strong> <%= plant.rusticity %>
+  </div>
+  <div class="darktext">
+    <strong>Floraison:</strong> <%= plant.flowering %>
   </div>
 </div>
 
