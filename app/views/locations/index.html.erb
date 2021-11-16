@@ -5,6 +5,43 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
+      
+        <div class="d-flex justify-content-between">
+          <div class="headtitle" style="text-align: left;">
+            Ma maison
+          </div>
+
+          <!-- Button trigger modal -->
+          <div data-toggle="modal" data-target="#session">
+            <div class="small-button-circle location-modify" id="session-button">
+              <i class="far fa-user"></i>
+            </div>
+          </div>
+          <!-- Modal -->
+          <div class="modal fade" id="session" role="dialog" aria-labelledby="SessionLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content card" style="height: auto;">
+                <div class="modal-header">
+                  <div class="fatdarktitle" id="locationLabel">Réglages</div>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div style="margin: 15px;">
+                    <div>
+                      <%= link_to "Modifier le profil", edit_user_registration_path %>
+                    </div>
+                    <div>
+                      <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %>               
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
 
         <% @locations.each_with_index do |location, index1| %>
           <div class="card card-location">

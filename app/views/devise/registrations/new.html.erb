@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="form">
+
+        <div class="headtitle">Créer un compte</div>
+
+         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+
+          <div class="darktext" style="margin-bottom: 5px;">
+            Email
+          </div>
+          <%= f.input :email,
+                      required: true,
+                      label: false,
+                      autofocus: true %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>En attente de confirmation de: <%= resource.unconfirmed_email %></p>
+          <% end %>
+
+          <div class="darktext" style="margin-bottom: 5px;">
+            Mot de passe
+          </div>
+          <%= f.input :password,
+                      hint: "Veuillez choisir un mot de passe avec au moins 6 caractères",
+                      label: false,
+                      required: false,
+                      input_html: { autocomplete: "nouveau mot de passe" } %>
+
+          <div class="darktext" style="margin-bottom: 5px;">
+            Confirmer le mot de passe
+          </div>
+          <%= f.input :password_confirmation,
+                      required: false,
+                      label: false,
+                      input_html: { autocomplete: "confirmer le mot de passe" } %>
+
+          <%= f.button :submit, "Rejoindre Bruyère", class:"button mb-5" %>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+
+      </div>
+    </div>
+  </div>
+</div>

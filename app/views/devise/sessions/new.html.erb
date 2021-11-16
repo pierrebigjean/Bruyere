@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="form">
+
+        <div class="headtitle">Se connecter</div>
+
+         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+          <div class="darktext" style="margin-bottom: 5px;">
+            Email
+          </div>
+          <%= f.input :email,
+                      required: true,
+                      label: false,
+                      autofocus: true %>
+
+          <div class="darktext" style="margin-bottom: 5px;">
+            Mot de passe
+          </div>
+          <%= f.input :password,
+                      label: false,
+                      required: false,
+                      input_html: { autocomplete: "nouveau mot de passe" } %>
+
+          <%= f.input :remember_me, 
+                      label: "Se souvenir de moi",
+                      as: :boolean if devise_mapping.rememberable? %>
+
+          <%= f.button :submit, "Connexion", class:"button mb-5" %>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+
+      </div>
+    </div>
+  </div>
+</div>
