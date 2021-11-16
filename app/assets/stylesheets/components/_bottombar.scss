@@ -17,13 +17,23 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: black;
+  color: $bruyere-dark;
   cursor: pointer;
   height: 30px;
   width: auto;
-  align-self: center;
-  .bottom-bar-text {
-    font-weight: 700;
+  .far, .fas {
     align-self: center;
+  }
+  .bottom-bar-text {
+    font-weight: 400;
+    align-self: center;
+    font-size: 12px;
+    margin-top: 3px;;
+  }
+  &:active {
+    opacity: 1;
+  }
+  &:hover {
+    opacity: 1;
   }
 }
