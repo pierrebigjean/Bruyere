@@ -4,7 +4,7 @@ class Plant < ApplicationRecord
 
   validates :name, presence: true
 
-  CATEGORY = %w(Intérieures Aromatiques Potager Verger Champignons)
+  CATEGORY = %w(Intérieures Aromatiques Potager Verger Champignons Arbres Fleurs Cactus Bassin Orchidées Palmiers Sauvages Haies)
 
   include PgSearch::Model
   pg_search_scope :search,

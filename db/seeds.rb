@@ -99,32 +99,37 @@ end
 def plants
   aujardin = {
     aromatiques: "https://www.aujardin.info/plantes/aromatiques-condimentaires-officinales.php",
-    # intérieures: "https://www.aujardin.info/plantes/encyclopedie-jardin-tropical.php",
-    # verger: "https://www.aujardin.info/plantes/encyclopedie-verger.php"
-    # potager: "https://www.aujardin.info/plantes/encyclopedie-potager.php",
-    # champignons: "https://www.aujardin.info/champignons/",
-    # arbres_arbustes_ete: "https://www.aujardin.info/plantes/arbres-arbustes-ete.php",
-    # arbres_arbustes_printemps: "https://www.aujardin.info/plantes/arbres-arbustes-printemps.php",
+    intérieures: "https://www.aujardin.info/plantes/encyclopedie-jardin-tropical.php",
+    verger: "https://www.aujardin.info/plantes/encyclopedie-verger.php",
+    potager: "https://www.aujardin.info/plantes/encyclopedie-potager.php",
+    champignons: "https://www.aujardin.info/champignons/",
+    arbres_arbustes_ete: "https://www.aujardin.info/plantes/arbres-arbustes-ete.php",
+    arbres_arbustes_printemps: "https://www.aujardin.info/plantes/arbres-arbustes-printemps.php",
     # balcon: "https://www.aujardin.info/plantes/encyclopedie-balcon.php",
-    # bassin: "https://www.aujardin.info/plantes/encyclopedie-bassin.php",
-    # cactus: "https://www.aujardin.info/plantes/encyclopedie-cactus.php",
+    bassin: "https://www.aujardin.info/plantes/encyclopedie-bassin.php",
+    cactus: "https://www.aujardin.info/plantes/encyclopedie-cactus.php",
     # feuillage: "https://www.aujardin.info/plantes/encyclopedie-jardin-feuillage.php",
-    # fleurs_ete: "https://www.aujardin.info/plantes/encyclopedie-jardin-ete.php",
-    # fleurs_printemps: "https://www.aujardin.info/plantes/encyclopedie-jardin-printemps.php",
-    # fleurs_automne: "https://www.aujardin.info/plantes/encyclopedie-jardin-automne.php",
-    # fleurs_hiver: "https://www.aujardin.info/plantes/encyclopedie-jardin-hiver.php",
-    # fleurs_vivaces_ete: "https://www.aujardin.info/plantes/fleurs-vivaces-ete.php",
-    # fleurs_vivaces_printemps: "https://www.aujardin.info/plantes/fleurs-vivaces-printemps.php",
-    # haies: "https://www.aujardin.info/plantes/encyclopedie-haies.php",
+    fleurs_ete: "https://www.aujardin.info/plantes/encyclopedie-jardin-ete.php",
+    fleurs_printemps: "https://www.aujardin.info/plantes/encyclopedie-jardin-printemps.php",
+    fleurs_automne: "https://www.aujardin.info/plantes/encyclopedie-jardin-automne.php",
+    fleurs_hiver: "https://www.aujardin.info/plantes/encyclopedie-jardin-hiver.php",
+    fleurs_vivaces_ete: "https://www.aujardin.info/plantes/fleurs-vivaces-ete.php",
+    fleurs_vivaces_printemps: "https://www.aujardin.info/plantes/fleurs-vivaces-printemps.php",
+    haies: "https://www.aujardin.info/plantes/encyclopedie-haies.php",
     # jardin_sud: "https://www.aujardin.info/plantes/encyclopedie-jardin-sud.php",
-    # orchidee: "https://www.aujardin.info/plantes/encyclopedie-orchidees.php",
-    # palmier: "https://www.aujardin.info/plantes/palmiers-bananiers-cycas.php",
-    # sauvage: "https://www.aujardin.info/plantes/sauvages.php",
+    orchidées: "https://www.aujardin.info/plantes/encyclopedie-orchidees.php",
+    palmiers: "https://www.aujardin.info/plantes/palmiers-bananiers-cycas.php",
+    sauvages: "https://www.aujardin.info/plantes/sauvages.php",
   }
 
   plants = {}
 
   aujardin.each do |category, url|
+    if category.to_s.include?("fleurs")
+      category = "fleurs"
+    elsif category.to_s.include?("arbres")
+      category = "arbres"
+    end
     plant_names = []
     begin
       html_file = URI.open(url).read
