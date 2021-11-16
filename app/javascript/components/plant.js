@@ -60,15 +60,15 @@ const initPlant = () => {
     })
   }
 
-  const aromatiques = document.getElementById("aromatiques")
-  if (aromatiques) {
+  const consommables = document.getElementById("consommables")
+  if (consommables) {
     window.addEventListener("scroll", () => {
       if (window.scrollY < 750) {
-        aromatiques.style.opacity = 0;
-        aromatiques.style.bottom = "-20px";
+        consommables.style.opacity = 0;
+        consommables.style.bottom = "-20px";
       } else {
-        aromatiques.style.opacity = 1;
-        aromatiques.style.bottom = "0px";
+        consommables.style.opacity = 1;
+        consommables.style.bottom = "0px";
       }
     })
   }
