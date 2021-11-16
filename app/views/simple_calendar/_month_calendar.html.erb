@@ -1,13 +1,9 @@
 <div class="container">
   <div class="simple-calendar">
 
-    <div class="headtitle" style="margin-top: 20px;">
-      Calendrier d'arrosage
-    </div>
-
     <div class="calendar-header">
       <%# <%= link_to t('simple_calendar.previous', default: '<'), calendar.url_for_previous_view, class: 'button' %>
-      <span style="width: 100%; text-align: center;"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+      <span class="headtitle"><%= t('date.month_names')[start_date.month].capitalize %> <%= start_date.year %></span>
       <%# <%= link_to t('simple_calendar.next', default: '>'), calendar.url_for_next_view, class: 'button' %>
     </div>
 
