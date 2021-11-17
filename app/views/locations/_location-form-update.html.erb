@@ -4,22 +4,27 @@
       <strong>Nom de l'emplacement</strong>
     </div>
     <%= f.input :name, label: false, placeholder: location.name %>
-    <div class="d-flex justify-content-around">
-      <div>
-        <div class="darktext">
-          <strong>Situation</strong>
+    <div class="modify-content-location">
+      <div class="modify-content-location-form">
+        <div>
+          <div class="darktext">
+            <strong>Situation</strong>
+          </div>
+          <%= f.input :category, :collection => Location::CATEGORY, as: :radio_buttons %>
         </div>
-        <%= f.input :category, :collection => Location::CATEGORY, as: :radio_buttons %>
-      </div>
-      <div>
-        <div class="darktext">
-          <strong>Luminosité</strong>
+        <div>
+          <div class="darktext">
+            <strong>Luminosité</strong>
+          </div>
+          <%= f.input :brightness, :collection => Location::BRIGHTNESS, as: :radio_buttons %>
         </div>
-        <%= f.input :brightness, :collection => Location::BRIGHTNESS, as: :radio_buttons %>
       </div>
-    </div>
-    <div class="d-flex justify-content-between">
       <%= f.button :submit, "Modifier", class: "button" %>
+    </div>
+    <%= link_to plants_path(real_exposure: exposure) do %>
+      Trouver des plantes
+    <% end %>
+    <div style="margin-top: 10px; text-align: end;">
       <%= link_to "Supprimer", location_path(location), method: "DELETE", class: "button buttonred" %>
     </div>
   </div>

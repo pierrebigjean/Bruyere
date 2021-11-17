@@ -14,12 +14,12 @@
                                  :autocomplete => :off,
                                  class: "search-bar-item", 
                                 #  style: "border-right: 1px solid rgb(226, 225, 225);",
-                                 placeholder: "Rechercher dans toute l'encyclopédie", 
-                                  value: params[:search],
-                                  data: {
-                                    refresh_list_target: 'searchInput',
-                                    action: "keyup->refresh-list#update",
-                                  } %>
+                                 placeholder: "Rechercher dans l'encyclopédie", 
+                                 value: params[:search],
+                                 data: {
+                                   refresh_list_target: 'searchInput',
+                                   action: "keyup->refresh-list#update",
+                                 } %>
                 <i class="fas fa-search"></i>
             <% end %>
           </div>
