@@ -10,6 +10,7 @@
           <div class="search-bar">
             <%= form_with url: plants_path, method: :get, remote: true, html: { data: { refresh_list_target: 'form' } } do |f| %>
                 <%= f.text_field :search,
+                                  :autocomplete => :off,
                                   class: "search-bar-item", 
                                   style: "border-right: 1px solid rgb(226, 225, 225);",
                                   placeholder: "Recherche", 

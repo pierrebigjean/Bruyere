@@ -33,12 +33,17 @@
   align-items: center;
 }
 
-#aromatiques {
-  background-image: image-url('plantes_aromatiques.jpg');
+#potager-gif {
+  background-image: image-url('potager-gif.gif');
+  box-shadow: none;
+  width: 90px;
+  height: 90px;
+  margin-right: 30px;
+  transform: rotate(-10deg);
 }
 
-#champignons {
-  background-image: image-url('champignons.jpg');
+#aromatiques {
+  background-image: image-url('plantes_aromatiques.jpg');
 }
 
 #verger {
@@ -78,6 +83,10 @@
 }
 
 #cactus {
+  background-image: image-url('cactus.jpg');
+}
+
+#divers {
   background-image: image-url('cactus.jpg');
 }
 

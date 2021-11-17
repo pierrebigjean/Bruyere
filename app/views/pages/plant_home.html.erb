@@ -106,23 +106,31 @@
 
         </div>
 
+        <%= link_to plants_path(category: "Fleurs") do %>
+          <div class="card plant-category-card-big " id="fleurs">
+            <div class="whitetitle">
+              Fleurs
+            </div>
+          </div>
+        <% end %>
+
         <div class="darktitle" style="text-align: center; margin: 20px;">
           Les consommables
         </div>
 
         <div id="consommables">
-          <%= link_to plants_path(category: "Aromatiques") do %>
-            <div class="card plant-category-card " id="aromatiques">
-              <div class="whitetitle">
-                Aromatiques
-              </div>
-            </div>
-          <% end %>
-
           <%= link_to plants_path(category: "Potager") do %>
             <div class="card plant-category-card " id="potager">
               <div class="whitetitle">
                 Potager
+              </div>
+            </div>
+          <% end %>
+
+          <%= link_to plants_path(category: "Aromatiques") do %>
+            <div class="card plant-category-card " id="aromatiques">
+              <div class="whitetitle">
+                Aromatiques
               </div>
             </div>
           <% end %>
@@ -135,43 +143,18 @@
             </div>
           <% end %>
 
-          <%= link_to plants_path(category: "Champignons") do %>
-            <div class="card plant-category-card " id="champignons">
-              <div class="whitetitle">
-                Champignons
-              </div>
-            </div>
-          <% end %>
+          <div class="card plant-category-card " id="potager-gif">
+          </div>
         </div>
 
-        <%= link_to plants_path(category: "Arbres") do %>
-          <div class="card plant-category-card-big " id="arbres">
-            <div class="whitetitle">
-              Arbres
-            </div>
-          </div>
-        <% end %>
-
-        <%= link_to plants_path(category: "Fleurs") do %>
-          <div class="card plant-category-card-big " id="fleurs">
-            <div class="whitetitle">
-              Fleurs
-            </div>
-          </div>
-        <% end %>
-
+        <div class="darktitle" style="text-align: center; margin: 20px;">
+          Pour les plus spécifiques
+        </div>
+        
         <%= link_to plants_path(category: "Cactus") do %>
           <div class="card plant-category-card-big " id="cactus">
             <div class="whitetitle">
               Cactus
-            </div>
-          </div>
-        <% end %>
-
-        <%= link_to plants_path(category: "Bassin") do %>
-          <div class="card plant-category-card-big " id="bassin">
-            <div class="whitetitle">
-              Plantes et fleurs d'eau
             </div>
           </div>
         <% end %>
@@ -184,6 +167,18 @@
           </div>
         <% end %>
 
+        <div class="darktitle" style="text-align: center; margin: 20px;">
+          Un peu de grandeur !
+        </div>
+
+        <%= link_to plants_path(category: "Arbres") do %>
+          <div class="card plant-category-card-big " id="arbres">
+            <div class="whitetitle">
+              Arbres
+            </div>
+          </div>
+        <% end %>
+
         <%= link_to plants_path(category: "Palmiers") do %>
           <div class="card plant-category-card-big " id="palmiers">
             <div class="whitetitle">
@@ -191,19 +186,39 @@
             </div>
           </div>
         <% end %>
-
-         <%= link_to plants_path(category: "Haies") do %>
+        
+        <%= link_to plants_path(category: "Haies") do %>
           <div class="card plant-category-card-big " id="haies">
             <div class="whitetitle">
               Haies
             </div>
           </div>
+        <% end %> 
+        
+        <%= link_to plants_path(category: "Bassin") do %>
+          <div class="card plant-category-card-big " id="bassin">
+            <div class="whitetitle">
+              Plantes et fleurs d'eau
+            </div>
+          </div>
         <% end %>
 
-         <%= link_to plants_path(category: "Sauvages") do %>
+        <%= link_to plants_path(category: "Sauvages") do %>
           <div class="card plant-category-card-big " id="sauvages">
             <div class="whitetitle">
-              Plantes et fleurs sauvages
+              Les sauvages
+            </div>
+          </div>
+        <% end %>
+        
+        <div class="darktitle" style="text-align: center; margin: 20px;">
+          Divers
+        </div>
+
+        <%= link_to plants_path(category: "Divers") do %>
+          <div class="card plant-category-card-big " id="divers">
+            <div class="whitetitle">
+              Divers et inclassables
             </div>
           </div>
         <% end %>

@@ -4,11 +4,11 @@ class Plant < ApplicationRecord
 
   validates :name, presence: true
 
-  CATEGORY = %w(Intérieures Aromatiques Potager Verger Champignons Arbres Fleurs Cactus Bassin Orchidées Palmiers Sauvages Haies)
+  CATEGORY = %w(Intérieures Aromatiques Potager Verger Arbres Fleurs Cactus Bassin Orchidées Palmiers Sauvages Haies)
 
   include PgSearch::Model
   pg_search_scope :search,
-    against: [ :exposure, :name, :nickname, :height, :rusticity, :flowering ],
+    against: [ :name, :nickname ],
     using: {
       tsearch: { prefix: true }
     }
