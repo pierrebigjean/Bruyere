@@ -74,6 +74,18 @@
                 <% when "Très Elevée" %>
                 <i class="far fa-sun"></i>
                 <% end %>
+                <% case location.brightness %>
+                <% when "Très faible" %>
+                <% exposure = "1" %>
+                <% when "Faible" %>
+                <% exposure = "2" %>
+                <% when "Moyenne" %>
+                <% exposure = "3" %>
+                <% when "Elevée" %>
+                <% exposure = "4" %>
+                <% when "Très Elevée" %>
+                <% exposure = "5" %>
+                <% end %>
                 <div class="dropdown-location">
                   <!-- Button trigger modal -->
                   <div data-toggle="modal" data-target="#location<%=index1 + 1%>">
@@ -92,7 +104,7 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                          <%= render 'location-form-update', location: location %>
+                          <%= render 'location-form-update', location: location, exposure: exposure %>
                         </div>
                       </div>
                     </div>
@@ -104,7 +116,9 @@
               <% if location.ownerships == [] %>
                 <div class="noplant">
                   <div class="darklighttext">
-                    Pas de plantes
+                    <%= link_to plants_path(real_exposure: exposure) do %>
+                      Trouver des plantes
+                    <% end %>
                   </div>
                 </div>
               <% end %>

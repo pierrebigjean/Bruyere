@@ -8,6 +8,7 @@
 
 require 'nokogiri'
 require 'open-uri'
+require 'csv'
 
 # DELETING THE SEEDS
 puts "Cleaning db"
@@ -168,5 +169,41 @@ puts "deleting duplicates"
 Plant.all.each do |plant|
   Plant.order("id desc").where(name: plant.name).drop(1).each { |w| w.delete }
 end
+
+def get_all_exposures
+  exposures = []
+  Plant.all.each do |plant|
+    exposures << plant.exposure
+  end
+  return exposures.uniq
+end
+
+def store_exposures_in_csv
+  exposures = get_all_exposures
+  CSV.open("db/exposures.csv", 'wb') do |csv|
+    csv << ["exposures", "real_exposures"]
+    exposures.each do |exposure|
+      csv << [exposure, 0]
+    end
+  end
+end
+
+puts "store exposures from aujardin"
+store_exposures_in_csv
+
+def create_real_exposures
+  csv_options = { headers: :first_row, header_converters: :symbol }
+  CSV.foreach("db/exposures.csv", csv_options) do |row|
+    Plant.all.each do |plant|
+      if plant.exposure == row[:exposures]
+        plant.real_exposure = row[:real_exposures]
+        plant.save
+      end
+    end
+  end
+end
+
+puts "create real exposures"
+create_real_exposures
 
 puts "Done!"
