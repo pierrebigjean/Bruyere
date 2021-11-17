@@ -4,14 +4,15 @@ class PlantsController < ApplicationController
 
   def index
     # store_exposures_in_csv
+    # create_real_exposures
 
     @ownership = Ownership.new
     @locations = Location.all
  
     @plants = Plant.where(category: params[:category]).order(:nickname)
     
-    if params[:exposure].present?
-      @plants = Plant.where(category: params[:category], exposure: params[:exposure]).order(:nickname)
+    if params[:real_exposure].present?
+      @plants = Plant.where(category: params[:category], real_exposure: params[:real_exposure]).order(:nickname)
     end
 
     if params[:search].present?
@@ -37,7 +38,7 @@ class PlantsController < ApplicationController
   def store_exposures_in_csv
     exposures = get_all_exposures
     CSV.open("db/exposures.csv", 'wb') do |csv|
-      csv << ["exposures", "traductions"]
+      csv << ["exposures", "real_exposures"]
       exposures.each do |exposure|
         csv << [exposure, 0]
       end
@@ -46,10 +47,13 @@ class PlantsController < ApplicationController
 
   def create_real_exposures
     csv_options = { headers: :first_row, header_converters: :symbol }
-    CSV.foreach("db/exposures.csv", 'wb', csv_options) do |row|
-      row[:price] = row[:price].to_i
-      @customers << Customer.new(row)
+    CSV.foreach("db/exposures.csv", csv_options) do |row|
+      Plant.all.each do |plant|
+        if plant.exposure == row[:exposures]
+          plant.real_exposure = row[:real_exposures]
+          plant.save
+        end
+      end
     end
   end
-
 end

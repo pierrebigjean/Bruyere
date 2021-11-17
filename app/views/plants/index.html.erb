@@ -37,23 +37,23 @@
                 <div style="flex-grow: 1; flex-direction: row; display: flex;">
                   <div class="search-bar-item search-bar-select search-bar-radio">
                     <i class="fas fa-cloud"></i>
-                    <%= radio_button_tag :exposure, "1" %>
+                    <%= radio_button_tag :real_exposure, "1", params[:real_exposure] == "1" %>
                   </div>
                   <div class="search-bar-item search-bar-select search-bar-radio">
                     <i class="fab fa-cloudflare"></i>
-                    <%= radio_button_tag :exposure, "2" %>
+                    <%= radio_button_tag :real_exposure, "2", params[:real_exposure] == "2" %>
                   </div>
                   <div class="search-bar-item search-bar-select search-bar-radio">
                   <i class="fas fa-cloud-sun"></i>
-                    <%= radio_button_tag :exposure, "2" %>
+                    <%= radio_button_tag :real_exposure, "3", params[:real_exposure] == "3" %>
                   </div>
                   <div class="search-bar-item search-bar-select search-bar-radio">
                     <i class="fas fa-sun"></i>
-                    <%= radio_button_tag :exposure, "2" %>
+                    <%= radio_button_tag :real_exposure, "4", params[:real_exposure] == "4" %>
                   </div>
                   <div class="search-bar-item search-bar-select search-bar-radio">
                     <i class="far fa-sun"></i>
-                    <%= radio_button_tag :exposure, "2" %>
+                    <%= radio_button_tag :real_exposure, "5", params[:real_exposure] == "5" %>
                   </div>
                 </div>
 
