@@ -10,6 +10,10 @@ class PlantsController < ApplicationController
  
     @plants = Plant.where(category: params[:category]).order(:nickname)
     
+    if params[:exposure].present?
+      @plants = Plant.where(category: params[:category], exposure: params[:exposure]).order(:nickname)
+    end
+
     if params[:search].present?
       @plants = Plant.search(params[:search]).order(:nickname)
     end
@@ -40,13 +44,12 @@ class PlantsController < ApplicationController
     end
   end
 
-  # def parse
-  #   csv_options = { headers: :first_row, header_converters: :symbol }
-  #   CSV.foreach("../../db/exposures.csv", 'wb', csv_options) do |row|
-  #     row[:id] = row[:id].to_i
-  #     row[:price] = row[:price].to_i
-  #     @customers << Customer.new(row)
-  #   end
-  # end
+  def create_real_exposures
+    csv_options = { headers: :first_row, header_converters: :symbol }
+    CSV.foreach("db/exposures.csv", 'wb', csv_options) do |row|
+      row[:price] = row[:price].to_i
+      @customers << Customer.new(row)
+    end
+  end
 
 end

@@ -7,33 +7,62 @@
       <div class="col-12">
 
         <div data-controller="refresh-list">
+
           <div class="search-bar">
             <%= form_with url: plants_path, method: :get, remote: true, html: { data: { refresh_list_target: 'form' } } do |f| %>
                 <%= f.text_field :search,
-                                  :autocomplete => :off,
-                                  class: "search-bar-item", 
-                                  style: "border-right: 1px solid rgb(226, 225, 225);",
-                                  placeholder: "Recherche", 
+                                 :autocomplete => :off,
+                                 class: "search-bar-item", 
+                                #  style: "border-right: 1px solid rgb(226, 225, 225);",
+                                 placeholder: "Rechercher dans toute l'encyclopédie", 
                                   value: params[:search],
                                   data: {
                                     refresh_list_target: 'searchInput',
                                     action: "keyup->refresh-list#update",
                                   } %>
+                <i class="fas fa-search"></i>
             <% end %>
+          </div>
 
+          <div class="search-resume">
             <%= form_tag plants_path, method: :get do %>
               <div class="d-flex">
-                <div class="search-bar-item search-bar-select">
+                <div class="search-bar-item search-bar-select" style="margin-right: 15px;">
                   <%= select_tag :category,
                     options_for_select(Plant::CATEGORY, selected: params[:category]),
                     id: 'select2category'
                   %>
                 </div>
+
+                <div style="flex-grow: 1; flex-direction: row; display: flex;">
+                  <div class="search-bar-item search-bar-select search-bar-radio">
+                    <i class="fas fa-cloud"></i>
+                    <%= radio_button_tag :exposure, "1" %>
+                  </div>
+                  <div class="search-bar-item search-bar-select search-bar-radio">
+                    <i class="fab fa-cloudflare"></i>
+                    <%= radio_button_tag :exposure, "2" %>
+                  </div>
+                  <div class="search-bar-item search-bar-select search-bar-radio">
+                  <i class="fas fa-cloud-sun"></i>
+                    <%= radio_button_tag :exposure, "2" %>
+                  </div>
+                  <div class="search-bar-item search-bar-select search-bar-radio">
+                    <i class="fas fa-sun"></i>
+                    <%= radio_button_tag :exposure, "2" %>
+                  </div>
+                  <div class="search-bar-item search-bar-select search-bar-radio">
+                    <i class="far fa-sun"></i>
+                    <%= radio_button_tag :exposure, "2" %>
+                  </div>
+                </div>
+
                 <button name="button" type="submit" class="button small-button-circle">
                   <i class="fas fa-leaf"></i>
                 </button>
               </div>
             <% end %>
+            
           </div>
 
           <%= render 'list' %>
