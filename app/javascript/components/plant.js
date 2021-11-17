@@ -63,7 +63,7 @@ const initPlant = () => {
   const consommables = document.getElementById("consommables")
   if (consommables) {
     window.addEventListener("scroll", () => {
-      if (window.scrollY < 750) {
+      if (window.scrollY < 1200) {
         consommables.style.opacity = 0;
         consommables.style.bottom = "-20px";
       } else {

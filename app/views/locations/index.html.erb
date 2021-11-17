@@ -115,11 +115,9 @@
             <div class="carousel">
               <% if location.ownerships == [] %>
                 <div class="noplant">
-                  <div class="darklighttext">
-                    <%= link_to plants_path(real_exposure: exposure) do %>
-                      Trouver des plantes
-                    <% end %>
-                  </div>
+                  <%= link_to plants_path(real_exposure: exposure) do %>
+                    Trouver des plantes
+                  <% end %>
                 </div>
               <% end %>
               <ul class="carousel-container sortable" >
