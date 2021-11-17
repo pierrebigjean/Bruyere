@@ -3,7 +3,6 @@
   display: flex;
   justify-content: space-between;
   margin: 10px auto;
-  margin-bottom: 20px;
   border-radius: 50px;
   box-shadow: 0 1px 8px rgba(0,0,0,0.08);
   padding: 5px;
@@ -12,15 +11,42 @@
   font-size: 15px;
   position: sticky;
   z-index: 8;
+
+  .fa-search {
+    opacity: 0.5;
+    transform: rotate(80deg);
+  }
+
+  .search-bar-item {
+    width: 92%;
+  }
 }
 
 .search-bar-item {
-  width: 100%;
   border-style: none;
   outline: none;
 }
 
 .search-bar-select {
   align-self: center;
-  margin: 0px 10px;
+  margin-right: 10px;
+}
+
+.search-resume {
+  width: 92%;
+  margin: 10px auto;
+  margin-bottom: 20px;
+  padding: 5px;
+  border-radius: 50px;
+}
+
+.search-bar-radio {
+  display: flex;
+  flex-direction: column;
+
+  .fab, .far, .fas {
+    position: relative;
+    top: -3px;
+    left: -2px;
+  }
 }

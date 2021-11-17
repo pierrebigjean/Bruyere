@@ -3,7 +3,7 @@ class Location < ApplicationRecord
   has_many :ownerships, dependent: :destroy
 
   CATEGORY = %w(Intérieur Extérieur)
-  BRIGHTNESS = %w(Basse Moyenne Haute)
+  BRIGHTNESS = ["Très faible", "Faible", "Moyenne", "Elevée", "Très Elevée"]
 
   validates :category, inclusion: { in: CATEGORY }
   validates :brightness, inclusion: { in: BRIGHTNESS }

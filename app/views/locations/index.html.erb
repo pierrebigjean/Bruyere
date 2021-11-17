@@ -63,12 +63,16 @@
                 <i class="fas fa-door-open"></i>
                 <% end %>
                 <% case location.brightness %>
-                <% when "Basse" %>
+                <% when "Très faible" %>
                 <i class="fas fa-cloud"></i>
+                <% when "Faible" %>
+                <i class="fab fa-cloudflare"></i>
                 <% when "Moyenne" %>
                 <i class="fas fa-cloud-sun"></i>
-                <% when "Haute" %>
+                <% when "Elevée" %>
                 <i class="fas fa-sun"></i>
+                <% when "Très Elevée" %>
+                <i class="far fa-sun"></i>
                 <% end %>
                 <div class="dropdown-location">
                   <!-- Button trigger modal -->
