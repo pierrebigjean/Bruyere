@@ -27,6 +27,7 @@ import { initSearchBar } from "../components/searchbar"
 import { initPlant } from "../components/plant"
 import { initFlatpickr } from "../plugins/init_flatpickr"
 import { initSelect2 } from '../plugins/init_select2';
+import { initBottombar } from "../components/bottombar"
 
 // Internal imports, e.g:
 
@@ -39,6 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   initSearchBar();
   initPlant();
   initFlatpickr();
+  initBottombar();
 });
 
 import "controllers"
