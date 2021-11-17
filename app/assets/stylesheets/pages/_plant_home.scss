@@ -42,6 +42,16 @@
   transform: rotate(-10deg);
 }
 
+#potager2-gif {
+  background-image: image-url('potager2-gif.gif');
+  box-shadow: none;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  top: 240px;
+  left: 135px;
+}
+
 #aromatiques {
   background-image: image-url('plantes_aromatiques.jpg');
 }
@@ -60,6 +70,9 @@
 
 #fleurs {
   background-image: image-url('fleurs.png');
+  height: 200px;
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
 #bassin {

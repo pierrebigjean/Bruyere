@@ -114,11 +114,8 @@
           </div>
         <% end %>
 
-        <div class="darktitle" style="text-align: center; margin: 20px;">
-          Les consommables
-        </div>
-
         <div id="consommables">
+
           <%= link_to plants_path(category: "Potager") do %>
             <div class="card plant-category-card " id="potager">
               <div class="whitetitle">
@@ -142,10 +139,16 @@
               </div>
             </div>
           <% end %>
-
-          <div class="card plant-category-card " id="potager-gif">
+          
+          <div class="darktitle" style="margin: 20px;">
+            Les consommables
+            <div class="card plant-category-card " id="potager-gif">
+            </div>
+            <div class="card plant-category-card " id="potager2-gif">
+            </div>
           </div>
         </div>
+
 
         <div class="darktitle" style="text-align: center; margin: 20px;">
           Pour les plus spécifiques
@@ -166,9 +169,21 @@
             </div>
           </div>
         <% end %>
+                
+        <%= link_to plants_path(category: "Bassin") do %>
+          <div class="card plant-category-card-big " id="bassin" style="margin-bottom: 40px;">
+            <div class="whitetitle">
+              Pour un bassin
+            </div>
+          </div>
+        <% end %>
 
         <div class="darktitle" style="text-align: center; margin: 20px;">
-          Un peu de grandeur !
+          Un peu de grandeur
+        </div>
+
+        <div class="darklighttext" style="margin: 20px;">
+          Pour les chanceux qui ont un jardin à cultiver, n'oubliez pas de prendre soin même des plus grands !
         </div>
 
         <%= link_to plants_path(category: "Arbres") do %>
@@ -179,46 +194,40 @@
           </div>
         <% end %>
 
-        <%= link_to plants_path(category: "Palmiers") do %>
-          <div class="card plant-category-card-big " id="palmiers">
-            <div class="whitetitle">
-              Palmiers
+        <div class="d-flex justify-content-between" style="margin-bottom: 40px;">
+          <%= link_to plants_path(category: "Palmiers") do %>
+            <div class="card plant-category-card " id="palmiers">
+              <div class="whitetitle">
+                Palmiers
+              </div>
             </div>
-          </div>
-        <% end %>
-        
-        <%= link_to plants_path(category: "Haies") do %>
-          <div class="card plant-category-card-big " id="haies">
-            <div class="whitetitle">
-              Haies
+          <% end %>
+          
+          <%= link_to plants_path(category: "Haies") do %>
+            <div class="card plant-category-card " id="haies">
+              <div class="whitetitle">
+                Haies
+              </div>
             </div>
-          </div>
-        <% end %> 
-        
-        <%= link_to plants_path(category: "Bassin") do %>
-          <div class="card plant-category-card-big " id="bassin">
-            <div class="whitetitle">
-              Plantes et fleurs d'eau
-            </div>
-          </div>
-        <% end %>
+          <% end %>        
+        </div>
 
-        <%= link_to plants_path(category: "Sauvages") do %>
-          <div class="card plant-category-card-big " id="sauvages">
-            <div class="whitetitle">
-              Les sauvages
-            </div>
-          </div>
-        <% end %>
-        
         <div class="darktitle" style="text-align: center; margin: 20px;">
-          Divers
+          Toujours plus !
         </div>
 
         <%= link_to plants_path(category: "Divers") do %>
           <div class="card plant-category-card-big " id="divers">
             <div class="whitetitle">
-              Divers et inclassables
+              Les inclassables
+            </div>
+          </div>
+        <% end %>
+        
+        <%= link_to plants_path(category: "Sauvages") do %>
+          <div class="card plant-category-card-big " id="sauvages" style="margin-bottom: 40px;">
+            <div class="whitetitle">
+              Les sauvages
             </div>
           </div>
         <% end %>
